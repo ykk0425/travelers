@@ -1,4 +1,4 @@
-<%= form_with(model: plan) do |form| %>
+<%= form_with(model: plan, local: true) do |form| %>
   <% if plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :review %>
-    <%= form.number_field :review %>
+    <%= form.label :traveldate %>
+    <%= form.date_select :start_date %>
+      <span>~</span>
+    <%= form.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
     <%= form.text_area :body %>
+  </div>
+
+  <div id="spots">
+    <%= form.fields_for :spots do |spot_form| %>
+      <%= render 'spot_fields', f: spot_form %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Spot', form, :spots %>
+    </div>
   </div>
 
   <div class="actions">

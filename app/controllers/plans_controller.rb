@@ -65,6 +65,10 @@ class PlansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plan_params
-      params.require(:plan).permit(:user_id, :title, :review, :date, :body)
+      params.require(:plan).permit(:user_id, :title, :review, :date, :body,
+        spots_attributes: [:id, :name, :image, :latitude, :longitude, :visit_order, :staying_time, :explanation, :_destroy,
+          routes_attributes: [:id, :start_station, :end_station, :transportation_method, :_destroy
+          ]
+        ])
     end
 end

@@ -13,7 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheet/application";
 
-import "cocoon";
+import "@nathanvda/cocoon";
 
 Rails.start()
 Turbolinks.start()

@@ -1,0 +1,50 @@
+<div class="nested_fields">
+  <div class="field">
+    <%= f.label :name, 'スポット名' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, '写真' %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude, '緯度' %>
+    <%= f.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longitude, '経度' %>
+    <%= f.text_field :longitude %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :visit_order, '訪問順' %>
+    <%= f.number_field :visit_order %>
+  </div>
+
+  <div class="field">
+    <%= f.label :staying_time, '滞在時間' %>
+    <%= f.number_field :staying_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :explanation, 'このスポットについて' %>
+    <%= f.text_area :explanation %>
+  </div>
+
+  <div id="routes">
+    <%= f.fields_for :routes do |route_form| %>
+      <%= render 'route_fields', f: route_form %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Route', f, :routes %>
+    </div>
+  </div>
+
+  <div class "actions">
+    <%= link_to_remove_association 'スポット削除', f %>
+  </div>
+
+</div>
