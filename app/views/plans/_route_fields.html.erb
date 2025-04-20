@@ -12,7 +12,7 @@
 
   <div class="field">
   <%= f.label :travel_time, '移動時間' %>
-  <%= f.number_field :travel_time %>
+  <%= f.number_field :travel_time %>分
   </div>
 
   <div class="field">
@@ -26,12 +26,12 @@
   </div>
 
   <div class="field">
-  <%= f.label :description, '道順について' %>
+  <%= f.label :description, 'ルートについて' %>
   <%= f.text_field :description %>
   </div>
 
   <div class ="links">
-    <%= link_to_remove_association "道順を削除", f %>
+    <%= link_to_remove_association "Delete Route", f %>
   </div>
 
 </div>
