@@ -12,9 +12,12 @@
 
   <body>
     <header>
-      <a href="/"><%= image_tag('logo.png') %></a>
+      <%= link_to "Travelers" ,root_path %>
       <% if user_signed_in? %>
-        <!-- マイページ、新規投稿 -->
+        <!-- マイページ -->
+        <li>
+          <%= link_to "New Post", new_plan_path %>
+        </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
