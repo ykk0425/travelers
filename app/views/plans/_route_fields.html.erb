@@ -11,15 +11,18 @@
   </div>
 
   <div class="field">
-  <%= f.label :travel_time, '移動時間' %>
-  <%= f.number_field :travel_time %>分
+  <%= f.label :transportation, '移動方法' %>
+  <%= f.select :transportation, Route.transportations.keys.map { |k| [t("enums.route.transportation.#{k}"), k] } %>
+  </div>  
+
+  <div class="field">
+    <%= f.label :travel_time, '移動時間' %>
+    <%= f.number_field :travel_time %>分
   </div>
-
-
 
   <div class="field">
   <%= f.label :visit_order, '順番' %>
-  <%= f.number_field :visit_order %>
+  <%= f.number_field :visit_order, min: 0 %>
   </div>
 
   <div class="field">
