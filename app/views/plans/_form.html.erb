@@ -1,4 +1,4 @@
-<%= form_with(model: plan, local: true) do |form| %>
+<%= form_with(model: plan, local: true) do |f| %>
   <% if plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
@@ -12,32 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :タイトル %>
-    <%= form.text_field :title %>
+    <%= f.label :タイトル %>
+    <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :旅行日 %>
-      <%= form.date_select :start_date %>
+    <%= f.label :旅行日 %>
+      <%= f.date_select :start_date %>
         <span>~</span>
-      <%= form.date_select :end_date %>
+      <%= f.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= form.label :プランについて %>
-    <%= form.text_area :body %>
+    <%= f.label :プランについて %>
+    <%= f.text_area :body %>
   </div>
 
   <div id="spots">
-    <%= form.fields_for :spots do |spot_form| %>
+    <%= f.fields_for :spots do |spot_form| %>
       <%= render 'spot_fields', f: spot_form %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'Add Spot', form, :spots %>
+      <%= link_to_add_association 'Add Spot', f, :spots %>
     </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

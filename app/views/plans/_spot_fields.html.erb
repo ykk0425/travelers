@@ -10,6 +10,14 @@
   </div>
 
   <div class="field">
+    <%= f.label :滞在日時 %>
+    <%= f.date_select :staying_start %>
+      <span>~</span>
+    <%= f.date_select :staying_end %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :latitude, '緯度' %>
     <%= f.text_field :latitude %>
   </div>
@@ -24,10 +32,6 @@
     <%= f.number_field :visit_order %>
   </div>
 
-  <div class="field">
-    <%= f.label :staying_time, '滞在時間' %>
-    <%= f.number_field :staying_time %>分
-  </div>
 
   <div class="field">
     <%= f.label :explanation, 'スポットについて' %>
