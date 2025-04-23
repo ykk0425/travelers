@@ -10,12 +10,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :滞在日時 %>
-    <%= f.date_select :staying_start %>
+    <%= f.label :staying_start, '滞在日時' %>
+    <%= f.datetime_select :staying_start %>
       <span>~</span>
-    <%= f.date_select :staying_end %>
+    <%= f.datetime_select :staying_end %>
   </div>
-
 
   <div class="field">
     <%= f.label :latitude, '緯度' %>

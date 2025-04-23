@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :タイトル %>
+    <%= f.label :title, "タイトル" %>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :旅行日 %>
+    <%= f.label :start_date, "旅行日" %>
       <%= f.date_select :start_date %>
         <span>~</span>
       <%= f.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= f.label :プランについて %>
+    <%= f.label :body, "プランについて" %>
     <%= f.text_area :body %>
   </div>
 
