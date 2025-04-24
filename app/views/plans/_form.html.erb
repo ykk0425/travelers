@@ -1,7 +1,7 @@
 <%= form_with(model: plan, local: true) do |f| %>
   <% if plan.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+      <h2><%= plan.errors.count %> 件のエラーが発生しています。</h2>
 
       <ul>
         <% plan.errors.each do |error| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, "タイトル" %>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 

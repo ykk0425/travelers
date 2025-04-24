@@ -10,10 +10,6 @@ ja:
         bicycle: "自転車"
         airplane: "飛行機"
 
-  errors:
-    messages:
-      not_saved: "エラーが発生したため、保存されませんでした。"
-
   date:
     formats:
       default: "%Y/%m/%d"
@@ -53,9 +49,11 @@ ja:
       day: 日
       month: 月
       year: 年
+
   errors:
     format: "%{attribute}%{message}"
     messages:
+      not_saved: "エラーが発生したため、保存されませんでした。"
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
@@ -91,6 +89,7 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+
   number:
     currency:
       format:
@@ -140,11 +139,13 @@ ja:
     precision:
       format:
         delimiter: ''
+
   support:
     array:
       last_word_connector: "、"
       two_words_connector: "、"
       words_connector: "、"
+
   time:
     am: 午前
     formats:
@@ -152,3 +153,24 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  
+  activerecord:
+    attributes:
+      plan:
+        title: タイトル
+        review: レビュー
+        start_date: 旅行開始日
+        end_date: 旅行終了日
+      spot:
+        name: スポット名
+        visit_order: 訪問順
+        staying_start: 滞在開始日時
+        staying_end: 滞在終了日時
+      route:
+        departure: 出発地
+        arrival: 到着地
+        transportation: 移動方法
+        visit_order: 訪問順
+
+      
+  
