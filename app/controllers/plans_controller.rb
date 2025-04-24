@@ -8,6 +8,7 @@ class PlansController < ApplicationController
 
   # GET /plans/1 or /plans/1.json
   def show
+    @plan = Plan.find(params[:id])
   end
 
   # GET /plans/new
@@ -21,8 +22,7 @@ class PlansController < ApplicationController
 
   # POST /plans or /plans.json
   def create
-    @plan = Plan.new(plan_params)
-
+    @plan = current_user.plans.build(plan_params)
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: "Plan was successfully created." }

@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
-  def show
+
+  def mypage
     @user = current_user
+    @plan = @user.plans
+    render :show
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @plans = @user.plans
   end
 
 

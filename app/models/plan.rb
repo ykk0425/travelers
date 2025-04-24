@@ -10,6 +10,6 @@ class Plan < ApplicationRecord
 
   def start_end_check
     errors.add(:end_date, "は旅行開始日より前の日付では登録できません。") unless
-    self.start_date < self.end_date 
+    self.start_date <= self.end_date 
   end
 end

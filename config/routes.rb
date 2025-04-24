@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get 'homes/about' => 'homes#about', as: 'about'
-  get 'users/mypage' => 'users#show', as: 'mypage'
+  get 'users/mypage' => 'users#mypage', as: 'mypage'
   resources :users, only: [:show]
   resources :plans
 
