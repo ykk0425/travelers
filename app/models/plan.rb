@@ -2,6 +2,7 @@ class Plan < ApplicationRecord
   belongs_to :user
   has_many :spots, inverse_of: :plan, dependent: :destroy
   accepts_nested_attributes_for :spots, allow_destroy: true
+  validates_associated :spots
 
   validates :title, presence: true, length: { maximum: 100 }
   validates :start_date, presence: true

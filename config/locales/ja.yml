@@ -161,16 +161,18 @@ ja:
         review: レビュー
         start_date: 旅行開始日
         end_date: 旅行終了日
-      spot:
+      "plan/spots":
         name: スポット名
         visit_order: 訪問順
         staying_start: 滞在開始日時
         staying_end: 滞在終了日時
-      route:
+        routes: 道順
+      "plan/spots/routes":
         departure: 出発地
         arrival: 到着地
         transportation: 移動方法
         visit_order: 訪問順
-
+  views:
+    we_need_your_current_password_to_confirm_your_changes: あああ
       
   

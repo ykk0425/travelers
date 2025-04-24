@@ -28,13 +28,14 @@
     <%= f.text_area :body %>
   </div>
 
-  <div id="spots">
+  <div id="spots_form">
     <%= f.fields_for :spots do |spot_form| %>
       <%= render 'spot_fields', f: spot_form %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'スポット追加', f, :spots %>
-    </div>
+  </div>
+  <div class="links">
+    <%= link_to_add_association 'スポット追加', f, :spots
+    %>
   </div>
 
   <div class="actions">
