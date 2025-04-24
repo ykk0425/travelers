@@ -1,0 +1,7 @@
+<h3>プラン一覧</h3>
+
+<% @plans.each do |plan| %>
+  <div>
+    <h4><%= link_to plan.title, plan_path(plan) %></h4>
+  </div>
+<% end %>

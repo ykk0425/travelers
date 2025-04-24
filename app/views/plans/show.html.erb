@@ -1,57 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @plan.user_id %>
-</p>
+<h2>旅行プラン</h2>
 
-<h2>旅行Plan</h2>
 <p>
-  <strong>Title:</strong>
-  <%= @plan.title %>
+  <strong>【<%= @plan.title %>】</strong>
 </p>
 
 <p>
-  <strong>Review:</strong>
-  <%= @plan.review %>
+  投稿者: <%= link_to @plan.user.name, user_path(@plan.user) %>
 </p>
 
+<!-- レビュー -->
+
 <p>
-  <strong>Date:</strong>
+  旅行日:
   <%= @plan.start_date %>
   <span>~</span>
   <%= @plan.end_date %>
 </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @plan.body %>
-</p>
+<% if @plan.body.present? %>
+  プランについて:<%= @plan.body %>
+<% end %>
 
 
 <% @plan.spots.order(:visit_order).each do |spot| %>
   <div class="spot">
-    <p><strong>スポット名:</strong> <%= spot.name %></p>
-    <p><strong>訪問順:</strong> <%= spot.visit_order %></p>
-    <p><strong>滞在時間:</strong> <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
-    <p><strong>説明:</strong> <%= spot.explanation %></p>
-
+    <p>スポット名: <%= spot.name %></p>
     <% if spot.image.attached? %>
-      <p><strong>画像:</strong><br>
       <%= image_tag spot.image.variant(resize_to_limit: [400, 300]) %></p>
     <% end %>
-    
+    <p>滞在時間: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
+    <% if spot.explanation.present? %>
+      説明: <%= spot.explanation %>
+    <% end %>
+
+
     <% spot.routes.order(:visit_order).each do |route| %>
-      <strong><%= route.departure %> → <%= route.arrival %></strong><br>
-        移動手段: <%= t("enums.route.transportation.#{route.transportation}") %><br>
-        所要時間: <%= route.travel_time %>分<br> 
-        説明: <%= route.description %>  
+      <p>出発地: <%= route.departure %> → 到着地: <%= route.arrival %></p>
+      <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
+      <p>移動時間: <%= route.travel_time %>分</p> 
+      <% if route.description.present? %>
+        説明: <%= route.description %>
       <% end %>
     <% end %>
-    <hr>
   </div>
 <% end %>
 
 
-<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'プラン編集', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>

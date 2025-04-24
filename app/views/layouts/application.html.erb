@@ -18,7 +18,10 @@
           <%= link_to "My page", mypage_path %>
         </li>
         <li>
-          <%= link_to "New Post", new_plan_path %>
+          <%= link_to "プラン一覧", plans_path %> 
+        </li>
+        <li>
+          <%= link_to "プラン投稿", new_plan_path %>
         </li>
         <li> 
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>

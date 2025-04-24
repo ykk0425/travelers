@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def mypage
     @user = current_user
-    @plan = @user.plans
+    @plans = @user.plans
     render :show
   end
 
