@@ -67,7 +67,7 @@ class PlansController < ApplicationController
     def plan_params
       params.require(:plan).permit(:user_id, :title, :review, :start_date, :end_date, :body,
         spots_attributes: [:id, :name, :image, :latitude, :longitude, :visit_order, :staying_start, :staying_end, :explanation, :_destroy,
-          routes_attributes: [:id, :start_station, :end_station, :transportation_method, :_destroy
+          routes_attributes: [:id, :departure, :arrival, :travel_time, :transportation, :description, :visit_order, :_destroy
           ]
         ])
     end

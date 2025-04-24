@@ -28,7 +28,7 @@
   
   <div class="field">
     <%= f.label :visit_order, '訪問順' %>
-    <%= f.number_field :visit_order %>
+    <%= f.number_field :visit_order, min: 1 %>
   </div>
 
 
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class "actions">
+  <div class="actions">
     <%= link_to_remove_association 'Delete Spot', f %>
   </div>
 
