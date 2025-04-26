@@ -28,9 +28,9 @@
     <%= f.text_area :body %>
   </div>
 
-  <div id="spots_form">
-    <%= f.fields_for :spots do |spot_form| %>
-      <%= render 'spot_fields', f: spot_form %>
+  <div id="spot">
+    <%= f.fields_for :spots do |spot| %>
+      <%= render 'spot_fields', f: spot %>
     <% end %>
   </div>
   <div class="links">

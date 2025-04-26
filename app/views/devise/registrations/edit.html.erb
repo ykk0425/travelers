@@ -23,11 +23,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(<%= t("views.leave_blank_if_you_don't_want_to_change_it")%>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>(<%= @minimum_password_length %><%= t("views.characters_minimum")%>)</em>
     <% end %>
   </div>
 

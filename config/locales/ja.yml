@@ -65,7 +65,7 @@ ja:
       greater_than_or_equal_to: は%{count}以上の値にしてください
       in: は%{count}の範囲に含めてください
       inclusion: は一覧にありません
-      invalid: は不正な値です
+      invalid: が正しく入力されていません
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -161,9 +161,10 @@ ja:
         review: レビュー
         start_date: 旅行開始日
         end_date: 旅行終了日
+        spots: スポット情報
       "plan/spots":
         name: スポット名
-        visit_order: 訪問順
+        visit_order: スポット訪問順
         staying_start: 滞在開始日時
         staying_end: 滞在終了日時
         routes: 道順
@@ -171,8 +172,11 @@ ja:
         departure: 出発地
         arrival: 到着地
         transportation: 移動方法
-        visit_order: 訪問順
+        travel_time: 移動時間
+        visit_order: 道順順番
   views:
-    we_need_your_current_password_to_confirm_your_changes: あああ
+    leave_blank_if_you_don't_want_to_change_it: パスワードを変更しない場合は、空白のままにしてください
+    we_need_your_current_password_to_confirm_your_changes: 変更には現在のパスワードが必要です
+    characters_minimum: 文字以上
       
   

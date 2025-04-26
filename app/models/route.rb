@@ -7,7 +7,7 @@ class Route < ApplicationRecord
 
   validates :departure, presence: true
   validates :arrival, presence: true
-  validates :visit_order,  presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :travel_time,  presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :visit_order,  presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :travel_time,  presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
 end

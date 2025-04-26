@@ -3,7 +3,8 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user %>
+
+  <% if @user == current_user && !@user.guest_user? %>
     <p><%= link_to "編集", edit_user_registration_path %></p>
   <% end %>
 </div>
@@ -11,8 +12,8 @@
 <% if @user == current_user %>
   <%= link_to "新規プラン投稿する", new_plan_path %>
 <% end %>
-
-<h5>プラン一覧</h5>
+ 
+<h5>プラン一覧</h5> 
 
 <% @plans.each do |plan| %>
   <div>
