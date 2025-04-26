@@ -1,3 +1,40 @@
 <h2>What about Travelers!!</h2>
 <p>Travelersは「旅の思い出を残したい人」や<br>
 「旅行は好きだけどプランを立てるのはちょっと苦手...」という人のための旅行プラン共有サイトです！！</p>
+
+<div>
+  <h4>「自分で考えたプランで旅行に行く人」！！</h4>
+  <P>たくさん調べたのに旅行後しばらく経つと忘れてしまって、<br>
+  どうやって行ったけ？ってなることありませんか？<br>
+  またこのプランで行きたいな〜と思っても忘れちゃうと勿体ナイ！！</p>
+  <p>旅の思い出を残して、いつでも振り返れるようにしよう！</p>
+  <p>旅行プランを投稿して、次の旅にも活かせる記録を作ろう！！</p>
+  <p>まずは会員登録から</p>
+  <div>
+  <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
+  </div>
+  <div>
+    <%= link_to "Log in", new_user_session_path %>
+  </div>
+  <div>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+</div>
+
+<div>
+  <h4>「旅行は好きだけどプランを立てるのはちょっと苦手...」な方！！</h4>
+  <p>どこに行こう？どうやって行こう？目的地は決まったけど他どうしよう、、？</p>
+  <p>迷いすぎてせっかくの旅行なのにプランニングで疲れちゃう！って時！</p>
+  <p>誰かの旅行プランを参考にして、素敵なスポットに出会おう！</p>
+  <p>プランに迷ったとき、きっと役に立つアイデアがあるかもしれない！ </p>
+  <p>まずは会員登録から</p>
+  <div>
+    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
+  </div>
+  <div>
+    <%= link_to "Log in", new_user_session_path %>
+  </div>
+  <div>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+</div>
