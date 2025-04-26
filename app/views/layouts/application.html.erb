@@ -5,19 +5,40 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <script src="https://kit.fontawesome.com/dc91daef60.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <%= link_to "Travelers" , root_path %>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "My page", mypage_path %>
-        </li>
-        <li>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></p>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to mypage_path, class:'nav-link text-dark' do %>
+                    <i class="fa-solid fa-face-smile"></i> My page
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to plans_path %>
+                    <i class="fa-solid fa-person-walking-luggage"></i> プラン一覧 
+                  <% end %>
+                </li>
+            </ul>
+
+          </div>
+      
+
+        
           <%= link_to "プラン一覧", plans_path %> 
         </li>
         <li>
