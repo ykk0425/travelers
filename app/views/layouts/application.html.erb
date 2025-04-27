@@ -14,8 +14,8 @@
   <body>
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></p>
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,36 +29,43 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to plans_path %>
+                  <%= link_to plans_path, class:'nav-link text-dark' do  %>
                     <i class="fa-solid fa-person-walking-luggage"></i> プラン一覧 
                   <% end %>
                 </li>
+                <li>
+                  <%= link_to new_plan_path, class:'nav-link text-dark' do %>
+                    <i class="fa-solid fa-pencil"></i> 新規プラン投稿
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class:'nav-link text-dark' do %>
+                    <i class="fa-solid fa-right-from-bracket"></i> Log out
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to about_path, class:'nav-link text-dark' do %>
+                    <i class="fa-solid fa-link"></i> About
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path, class:'nav-link text-dark' do %>
+                    <i class="fa-solid fa-user-plus"></i> Sign up
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path, class:'nav-link text-dark' do %>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
-
           </div>
-      
-
-        
-          <%= link_to "プラン一覧", plans_path %> 
-        </li>
-        <li>
-          <%= link_to "プラン投稿", new_plan_path %>
-        </li>
-        <li> 
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "About", about_path %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
+        </div>
+      </nav>
     </header>
+
     <main>
       <div>
         <% flash.each do |key,message| %>

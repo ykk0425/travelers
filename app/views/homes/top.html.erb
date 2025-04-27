@@ -1,18 +1,27 @@
-<h1>welcome to 
-  <strong>Travelers</strong>!!
-</h1>
-<h2>Your Trip, Someone's Inspiration!!</h2>
-<p>あなたの旅の記録が誰かの旅のきっかけになる！旅の記録を残そう！誰かの旅を覗き見しよう！！</p>
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="mb-3">Welcome to Travelers!!</h1>
+    <h2 class="mb-4">Your Trip, Someone's Inspiration!!</h2>
+    <p class="mb-5">
+      あなたの旅の記録が誰かの旅のきっかけになる！<br>
+      旅の記録を残そう！誰かの旅を覗き見しよう！！
+    </p>
+    
+    <div>
+      <%= link_to about_path, class:'btn btn-outline-primary' do %>
+        <i class="fa-solid fa-link"></i> About
+      <% end %>
+    </div>
 
-<div>
-  <%= link_to "Travelersについて", about_path %>
-</div>
-<div>
-  <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
-</div>
-<div>
-  <%= link_to "Log in", new_user_session_path %>
-</div>
-<div>
-  <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+</div> 
+  <div>
+    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
+  </div>
+  <div>
+    <%= link_to "Log in", new_user_session_path %>
+  </div>
+  <div>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
 </div>
