@@ -6,22 +6,27 @@
       あなたの旅の記録が誰かの旅のきっかけになる！<br>
       旅の記録を残そう！誰かの旅を覗き見しよう！！
     </p>
-    
-    <div>
-      <%= link_to about_path, class:'btn btn-outline-primary' do %>
+    <div class="d-grid gap-3 col-6 mx-auto">
+
+      <%= link_to about_path, class:'btn btn-outline-info mb-3' do %>
         <i class="fa-solid fa-link"></i> About
       <% end %>
-    </div>
 
-  </div>
-</div> 
-  <div>
-    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
-  </div>
-  <div>
-    <%= link_to "Log in", new_user_session_path %>
-  </div>
-  <div>
-    <%= link_to "Sign up", new_user_registration_path %>
+      <%= link_to users_guest_sign_in_path, method: :post, class:'btn btn-outline-info mb-3' do %>
+        <i class="fa-solid fa-face-grin-squint"></i> Guest Log in（閲覧用）
+      <% end %>
+
+      
+      <div class="d-grid gap-3 col-6 mx-auto">
+        <%= link_to new_user_session_path, class:'btn btn-info mb-3' do %>
+           <i class="fa-solid fa-right-to-bracket"></i>  Log in
+        <% end %>
+
+        <%= link_to new_user_registration_path, class:'btn btn-info mb-3' do %>
+          <i class="fa-solid fa-user-plus"></i> Sign up
+        <% end %>
+
+      </div>
+    </div>
   </div>
 </div>
