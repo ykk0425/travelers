@@ -1,52 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
 
-<h2>旅行プラン</h2>
+  <h2><i class="fa-solid fa-book-atlas"></i>旅行プラン</h2>
 
-<p>
-  <strong>【<%= @plan.title %>】</strong>
-</p>
+  <p>
+    <h4><strong>【<%= @plan.title %>】</strong></h4>
+  </p>
 
-<p>
-  投稿者: <%= link_to @plan.user.name, user_path(@plan.user) %>
-</p>
+  <p>
+    投稿者: <%= link_to @plan.user.name, user_path(@plan.user) %>
+  </p>
 
-<!-- レビュー -->
+  <!-- レビュー -->
 
-<p>
-  旅行日:
-  <%= @plan.start_date %>
-  <span>~</span>
-  <%= @plan.end_date %>
-</p>
+  <p>
+    旅行日:
+    <%= @plan.start_date %>
+    <span>~</span>
+    <%= @plan.end_date %>
+  </p>
 
-<% if @plan.body.present? %>
-  プランについて:<%= @plan.body %>
-<% end %>
-
-
-<% @plan.spots.order(:visit_order).each do |spot| %>
-  <div class="spot">
-    <p>スポット名: <%= spot.name %></p>
-    <% if spot.image.attached? %>
-      <%= image_tag spot.image.variant(resize_to_limit: [400, 300]) %></p>
-    <% end %>
-    <p>滞在時間: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
-    <% if spot.explanation.present? %>
-      説明: <%= spot.explanation %>
-    <% end %>
+  <% if @plan.body.present? %>
+    プランについて:<%= @plan.body %>
+  <% end %>
 
 
-    <% spot.routes.order(:visit_order).each do |route| %>
-      <p>出発地: <%= route.departure %> → 到着地: <%= route.arrival %></p>
-      <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
-      <p>移動時間: <%= route.travel_time %>分</p> 
-      <% if route.description.present? %>
-        説明: <%= route.description %>
+  <% @plan.spots.order(:visit_order).each do |spot| %>
+    <div class="spot">
+      <p>スポット名: <%= spot.name %></p>
+      <% if spot.image.attached? %>
+        <%= image_tag spot.image.variant(resize_to_limit: [400, 300]) %></p>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
+      <p>滞在時間: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
+      <% if spot.explanation.present? %>
+        説明: <%= spot.explanation %>
+      <% end %>
 
 
-<%= link_to 'プラン編集', edit_plan_path(@plan) %> |
-<%= link_to 'Back', plans_path %>
+      <% spot.routes.order(:visit_order).each do |route| %>
+        <p>出発地: <%= route.departure %> → 到着地: <%= route.arrival %></p>
+        <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
+        <p>移動時間: <%= route.travel_time %>分</p> 
+        <% if route.description.present? %>
+          説明: <%= route.description %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm' %> |
+  <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm' %>
+</div>

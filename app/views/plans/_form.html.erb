@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :start_date, "旅行日" %>
+    <%= f.label :start_date, "旅行日" %><br>
       <%= f.date_select :start_date %>
         <span>~</span>
       <%= f.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= f.label :body, "プランについて" %>
+    <%= f.label :body, "プランについて" %><br>
     <%= f.text_area :body %>
   </div>
 
@@ -34,11 +34,10 @@
     <% end %>
   </div>
   <div class="links">
-    <%= link_to_add_association 'スポット追加', f, :spots
-    %>
+    <%= link_to_add_association 'スポット追加', f, :spots , class: 'btn btn-outline-info btn-sm mb-3' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '投稿する', class:'btn btn-info btn-lg mb-3' %>
   </div>
 <% end %>

@@ -1,8 +1,11 @@
-<h1>プラン編集</h1>
+<div class="container mt-5">
+  <h2><i class="fa-solid fa-pencil"></i>旅行プラン編集</h2>
 
-<%= render 'form', plan: @plan %>
+  <%= render 'form', plan: @plan %>
 
-<%= link_to 'プラン削除',plan_path(@plan), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-
-<%= link_to 'Show', @plan %> |
-<%= link_to 'Back', plans_path %>
+  <%= link_to 'プラン削除',plan_path(@plan), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger mb-3' %>
+  <div>
+    <%= link_to 'プラン詳細', @plan, class: 'btn btn-outline-secondary btn-sm' %> |
+    <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm' %>
+  </div>
+</div>

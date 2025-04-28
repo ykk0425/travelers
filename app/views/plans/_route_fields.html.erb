@@ -1,37 +1,37 @@
 <div class="nested-fields">
 
   <div class="field">
-    <%= f.label :departure, '出発地' %>
+    <%= f.label :departure, '出発地' %><br>
     <%= f.text_field :departure %>
   </div>
 
   <div class="field">
-    <%= f.label :arrival, '到着地' %>
+    <%= f.label :arrival, '到着地' %><br>
     <%= f.text_field :arrival %>
   </div>
 
   <div class="field">
-  <%= f.label :transportation, '移動方法' %>
+  <%= f.label :transportation, '移動方法' %><br>
   <%= f.select :transportation, Route.transportations.keys.map { |k| [t("enums.route.transportation.#{k}"), k] } %>
   </div>  
 
   <div class="field">
-    <%= f.label :travel_time, '移動時間' %>
+    <%= f.label :travel_time, '移動時間' %><br>
     <%= f.number_field :travel_time, min: 0 %>分
   </div>
 
   <div class="field">
-  <%= f.label :visit_order, '順番' %>
+  <%= f.label :visit_order, '順番' %><br>
   <%= f.number_field :visit_order, min: 1 %>
   </div>
 
   <div class="field">
-  <%= f.label :description, 'ルートについて' %>
+  <%= f.label :description, 'ルートについて' %><br>
   <%= f.text_field :description %>
   </div>
 
   <div class ="links">
-    <%= link_to_remove_association "道削除", f %>
+   <%= link_to_remove_association "道削除", f, class: 'btn btn-outline-danger btn-sm my-2' %>
   </div>
 
 </div>

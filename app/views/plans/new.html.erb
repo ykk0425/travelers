@@ -1,5 +1,7 @@
-<h1>新規プラン投稿</h1>
+<div class="container mt-5">
+  <h2><i class="fa-solid fa-pencil"></i>新規プラン投稿</h2>
 
-<%= render 'form', plan: @plan %>
+  <%= render 'form', plan: @plan %>
 
-<%= link_to 'Back', plans_path %>
+  <%= link_to 'Back', plans_path, class: 'btn btn-outline-secondary btn-sm' %>
+</div>

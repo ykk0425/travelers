@@ -1,7 +1,15 @@
-<h3>プラン一覧</h3>
+<div class="container mt-5">
+  <h2 class="mb-4">
+    <i class="fa-solid fa-person-walking-luggage"></i> プラン一覧
+  </h2>
 
-<% @plans.each do |plan| %>
-  <div>
-    <h4><%= link_to plan.title, plan_path(plan) %></h4>
+  <div class="row">
+    <% @plans.each do |plan| %>
+      <div class="col-md-4 mb-3">
+        <div class="text-center p-3 border rounded">
+          <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

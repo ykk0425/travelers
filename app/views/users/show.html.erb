@@ -1,23 +1,28 @@
-<div class=
-<h3><%= @user == current_user ? "My page" : "#{@user.name}さんのページ" %></h3>
+<div class="container mt-5">
+  <h3><i class="fa-solid fa-face-smile"></i><%= @user == current_user ? "My page" : "#{@user.name}さんのページ" %></h3>
 
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-
-  <% if @user == current_user && !@user.guest_user? %>
-    <p><%= link_to "編集", edit_user_registration_path %></p>
-  <% end %>
-</div>
-
-<% if @user == current_user %>
-  <%= link_to "新規プラン投稿する", new_plan_path %>
-<% end %>
- 
-<h5>プラン一覧</h5> 
-
-<% @plans.each do |plan| %>
   <div>
-    <%= link_to plan.title, plan_path(plan) %>
+    <h4><%= @user.name %></h4>
+    <%= image_tag @user.get_profile_image(100,100) %>
+
+    <% if @user == current_user && !@user.guest_user? %>
+      <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-outline-info mb-3' %></p>
+    <% end %>
   </div>
-<% end %>
+
+  <% if @user == current_user %>
+    <%= link_to "新規プラン投稿する", new_plan_path, class: 'btn btn-outline-info mb-3' %>
+  <% end %>
+ 
+  <h4><i class="fa-solid fa-person-walking-luggage"></i>プラン一覧</h4> 
+
+  <div class="row">
+    <% @plans.each do |plan| %>
+      <div class="col-md-4 mb-3">
+        <div class="text-center p-3 border rounded">
+          <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,39 +1,39 @@
 <div class="nested-fields">
   <div class="field">
-    <%= f.label :name, 'スポット名' %>
+    <%= f.label :name, 'スポット名' %><br>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :image, '写真' %>
+    <%= f.label :image, '写真' %><br>
     <%= f.file_field :image %>
   </div>
 
   <div class="field">
-    <%= f.label :staying_start, '滞在日時' %>
+    <%= f.label :staying_start, '滞在日時' %><br>
     <%= f.datetime_select :staying_start %>
       <span>~</span>
     <%= f.datetime_select :staying_end %>
   </div>
 
   <div class="field">
-    <%= f.label :latitude, '緯度' %>
+    <%= f.label :latitude, '緯度' %><br>
     <%= f.text_field :latitude %>
   </div>
 
   <div class="field">
-    <%= f.label :longitude, '経度' %>
+    <%= f.label :longitude, '経度' %><br>
     <%= f.text_field :longitude %>
   </div>
   
   <div class="field">
-    <%= f.label :visit_order, 'スポット訪問順' %>
+    <%= f.label :visit_order, 'スポット訪問順' %><br>
     <%= f.number_field :visit_order, min: 1 %>
   </div>
 
 
   <div class="field">
-    <%= f.label :explanation, 'スポットについて' %>
+    <%= f.label :explanation, 'スポットについて' %><br>
     <%= f.text_area :explanation %>
   </div>
 
@@ -42,12 +42,12 @@
       <%= render 'route_fields', f: route_form %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association '道追加', f, :routes %>
+      <%= link_to_add_association '道追加', f, :routes, class: 'btn btn-outline-info btn-sm mb-1' %>
     </div>
   </div>
 
   <div class="actions">
-    <%= link_to_remove_association 'スポット削除', f %>
+   <%= link_to_remove_association 'スポット削除', f, class: 'btn btn-outline-danger btn-sm mb-2' %>
   </div>
 
 </div>
