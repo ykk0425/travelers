@@ -28,22 +28,23 @@
   <% @plan.spots.order(:visit_order).each do |spot| %>
     <div class="spot">
       <p>スポット名: <%= spot.name %></p>
-      <% if spot.image.attached? %>
-        <%= image_tag spot.image.variant(resize_to_limit: [400, 300]) %></p>
-      <% end %>
+        <% if spot.image.attached? %>
+          <%= image_tag spot.image.variant(resize_to_limit: [400, 300]) %></p>
+        <% end %>
       <p>滞在時間: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
-      <% if spot.explanation.present? %>
-        説明: <%= spot.explanation %>
-      <% end %>
+        <% if spot.explanation.present? %>
+          説明: <%= spot.explanation %>
+        <% end %>
+      <p>(緯度軽度用いて)マップ表示予定</p>
 
 
       <% spot.routes.order(:visit_order).each do |route| %>
         <p>出発地: <%= route.departure %> → 到着地: <%= route.arrival %></p>
         <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
         <p>移動時間: <%= route.travel_time %>分</p> 
-        <% if route.description.present? %>
-          説明: <%= route.description %>
-        <% end %>
+          <% if route.description.present? %>
+            説明: <%= route.description %>
+          <% end %>
       <% end %>
     </div>
   <% end %>
