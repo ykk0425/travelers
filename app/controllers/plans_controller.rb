@@ -63,10 +63,10 @@ class PlansController < ApplicationController
       @plan = Plan.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # planパラメータ
     def plan_params
       params.require(:plan).permit(:user_id, :title, :review, :start_date, :end_date, :body,
-        spots_attributes: [:id, :name, :image, :latitude, :longitude, :visit_order, :staying_start, :staying_end, :explanation, :_destroy,
+        spots_attributes: [:id, :name, :latitude, :longitude, :visit_order, :staying_start, :staying_end, :explanation, :_destroy, {images: []},
           routes_attributes: [:id, :departure, :arrival, :travel_time, :transportation, :description, :visit_order, :_destroy
           ]
         ])

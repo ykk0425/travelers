@@ -28,8 +28,14 @@
   <% @plan.spots.order(:visit_order).each do |spot| %>
     <div class="spot">
       <p>スポット名: <%= spot.name %></p>
-        <% if spot.image.attached? %>
-          <%= image_tag spot.image.variant(resize_to_limit: [400, 300]) %></p>
+        <% if spot.images.attached? %>
+          <div class="row">
+            <% spot.images.each do |image| %>
+              <div class="mb-3">
+                <%= image_tag image.variant(resize_to_limit: [400, 300]) %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       <p>滞在時間: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
         <% if spot.explanation.present? %>

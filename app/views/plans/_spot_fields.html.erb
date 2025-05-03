@@ -5,8 +5,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :image, '写真' %><br>
-    <%= f.file_field :image %>
+    <%= f.label :images, '写真(複数まとめて選択OK)' %><br>
+    <%= f.file_field :images, multiple: true %>
   </div>
 
   <div class="field">
