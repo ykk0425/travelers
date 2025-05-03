@@ -127,3 +127,155 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     visit_order: 4
   )
 end
+
+
+#旅好きママさん投稿プラン
+#プラン1
+Plan.find_or_create_by!(title: "三重旅行") do |plan|
+  plan.start_date = Date.new(2024, 8, 1)
+  plan.end_date = Date.new(2024, 8, 3)
+  plan.body = "子どもと一緒に夏休みの旅行に行きました♫"
+  plan.user = mama
+
+
+  spot1 = plan.spots.build(
+    name: "伊勢シーパラダイス",
+    explanation: "距離感がすごく近い水族館！ふれあいの多さに子どもも大喜び！じっくり回って大満足です！",
+    visit_order: 1,
+    longitude: 136.803720,
+    latitude: 34.313526,
+    staying_start: DateTime.new(2024,8,1,12,0),
+    staying_end:   DateTime.new(2025,8,1,15,0)
+  )
+
+  spot1.images.attach([
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot1-1.jpg")), filename: "mama-p1-spot1-1.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot1-2.jpg")), filename: "mama-p1-spot1-2.jpg" },    
+   ])
+
+  # スポット2(宿泊)
+  spot2 = plan.spots.build(
+    name: "ホテル志摩スペイン村",
+    explanation: "志摩スペイン村”公式ホテルに宿泊！",
+    visit_order: 2,
+    longitude: 136.7525,
+    latitude: 34.4836,
+    staying_start: DateTime.new(2024,8,1,17,0),
+    staying_end:   DateTime.new(2024,8,3,10,0)
+  )
+
+  # スポット3（志摩スペイン村）
+  spot3 = plan.spots.build(
+    name: "志摩スペイン村",
+    explanation: "一日中志摩スペイン村を堪能！アトラクションもたくさん乗って楽しかったみたい！",
+    visit_order: 3,
+    longitude: 136.845004,
+    latitude: 34.360693,
+    staying_start: DateTime.new(2024,8,2,9,0),
+    staying_end:   DateTime.new(2024,8,2,20,0)
+  )
+
+  spot3.images.attach([
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot3-1.jpg")), filename: "mama-p1-spot3-1.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot3-2.jpg")), filename: "mama-p1-spot3-2.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot3-3.jpg")), filename: "mama-p1-spot3-3.jpg" }    
+   ])
+
+
+  # スポット4（鳥羽湾クルーズ）
+  spot4 = plan.spots.build(
+    name: "鳥羽湾めぐりとイルカ島",
+    explanation: "普段のることのない大きい船に乗ってイルカのいる島へ！",
+    visit_order: 4,
+    longitude: 136.844946,
+    latitude: 34.49007,
+    staying_start: DateTime.new(2024,8,3,10,0),
+    staying_end:   DateTime.new(2024,8,3,12,0)
+  )
+
+  # スポット5（鳥羽水族館）
+  spot5 = plan.spots.build(
+    name: "鳥羽水族館",
+    explanation: "ジュゴンに会える水族館！",
+    visit_order: 5,
+    longitude: 136.8460367,
+    latitude: 34.4812397,
+    staying_start: DateTime.new(2024,8,3,13,10),
+    staying_end:   DateTime.new(2024,8,3,16,00)
+  )
+
+  spot5.images.attach([
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-1.jpg")), filename: "mama-p1-spot5-1.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-2.jpg")), filename: "mama-p1-spot5-2.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-3.jpg")), filename: "mama-p1-spot5-3.jpg" }    
+   ])
+
+
+  # spot1 にルートをネスト（鶴橋駅→鳥羽駅) 
+  spot1.routes.build(
+    departure: "鶴橋駅",
+    arrival: "鳥羽駅",
+    travel_time: 120,
+    transportation: 2, # 電車
+    description: nil,
+    visit_order: 1
+  )
+
+  # spot1 にルートをネスト（鳥羽駅 → 伊勢シーパラダイス）
+  spot1.routes.build(
+    departure: "鳥羽駅",
+    arrival: "夫婦岩東口",
+    travel_time: 15,
+    transportation: 3, #バス
+    description: nil,
+    visit_order: 2
+  )
+
+  # spot2 にルートをネスト（ 伊勢シーパラダイス→鳥羽駅）
+  spot2.routes.build(
+    departure: "夫婦岩東口",
+    arrival: "鳥羽駅",
+    travel_time: 15,
+    transportation: 3, # バス
+    description: nil,
+    visit_order: 3
+  )
+  # spot2（ 鳥羽駅→鵜方駅）
+  spot2.routes.build(
+    departure: "鳥羽駅",
+    arrival: "鵜方駅",
+    travel_time: 25,
+    transportation: 2, # 電車
+    description: nil,
+    visit_order: 4
+  )
+  # spot2（ 鵜方駅→ホテル）
+  spot2.routes.build(
+    departure: "鵜方駅",
+    arrival: "ホテル志摩スペイン村",
+    travel_time: 10,
+    transportation: 3, # バス
+    description: nil,
+    visit_order: 5
+  )
+
+  # spot4 にルートをネスト（ホテル志摩スペイン村→鵜方駅）
+  spot4.routes.build(
+    departure: "ホテル志摩スペイン村",
+    arrival: "鵜方駅",
+    travel_time: 10,
+    transportation: 3, # たとえば 3 = バス
+    description: nil,
+    visit_order: 6
+  )
+  # spot4 にルートをネスト（鵜方駅→鳥羽駅）
+  spot4.routes.build(
+    departure: "鵜方駅",
+    arrival: "鳥羽駅",
+    travel_time: 15,
+    transportation: 2, #電車
+    description: nil,
+    visit_order: 7
+  )
+
+end
