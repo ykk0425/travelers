@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2025_04_24_071019) do
     t.integer "plan_id"
     t.string "name"
     t.text "explanation"
-    t.integer "staying_time"
     t.integer "visit_order"
     t.float "longitude"
     t.float "latitude"
