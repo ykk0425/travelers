@@ -94,7 +94,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     departure: "鳥羽駅",
     arrival: "夫婦岩東口(三重交通バス)",
     travel_time: 12,
-    transportation: 3, # バス
+    transportation: 2, # バス
     description: "伊勢市駅からバスだと45分くらいかかる(便によっては？)みたいだったので鳥羽駅からバスで移動",
     visit_order: 1
   )
@@ -104,7 +104,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     departure: "夫婦岩東口",
     arrival: "外宮前",
     travel_time: 45,
-    transportation: 3, #  バス
+    transportation: 2, #  バス
     description: nil,
     visit_order: 2
   )
@@ -113,7 +113,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     departure: "外宮前",
     arrival:"神宮会館前" ,
     travel_time: 20,
-    transportation: 3, # バス
+    transportation: 2, # バス
     description: nil,
     visit_order: 3
   )
@@ -122,7 +122,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     departure: "おかげ横丁",
     arrival: "内宮",
     travel_time: 15,
-    transportation: 1, # 徒歩
+    transportation: 0, # 徒歩
     description: "おかげ横丁ぶらぶらして内宮へ",
     visit_order: 4
   )
@@ -210,25 +210,14 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-3.jpg")), filename: "mama-p1-spot5-3.jpg" }    
    ])
 
-
-  # spot1 にルートをネスト（鶴橋駅→鳥羽駅) 
-  spot1.routes.build(
-    departure: "鶴橋駅",
-    arrival: "鳥羽駅",
-    travel_time: 120,
-    transportation: 2, # 電車
-    description: nil,
-    visit_order: 1
-  )
-
   # spot1 にルートをネスト（鳥羽駅 → 伊勢シーパラダイス）
   spot1.routes.build(
     departure: "鳥羽駅",
     arrival: "夫婦岩東口",
     travel_time: 15,
-    transportation: 3, #バス
+    transportation: 2, #バス
     description: nil,
-    visit_order: 2
+    visit_order: 1
   )
 
   # spot2 にルートをネスト（ 伊勢シーパラダイス→鳥羽駅）
@@ -236,27 +225,27 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     departure: "夫婦岩東口",
     arrival: "鳥羽駅",
     travel_time: 15,
-    transportation: 3, # バス
+    transportation: 2, # バス
     description: nil,
-    visit_order: 3
+    visit_order: 2
   )
   # spot2（ 鳥羽駅→鵜方駅）
   spot2.routes.build(
     departure: "鳥羽駅",
     arrival: "鵜方駅",
     travel_time: 25,
-    transportation: 2, # 電車
+    transportation: 1, # 電車
     description: nil,
-    visit_order: 4
+    visit_order: 3
   )
   # spot2（ 鵜方駅→ホテル）
   spot2.routes.build(
     departure: "鵜方駅",
     arrival: "ホテル志摩スペイン村",
     travel_time: 10,
-    transportation: 3, # バス
+    transportation: 2, # バス
     description: nil,
-    visit_order: 5
+    visit_order: 4
   )
 
   # spot4 にルートをネスト（ホテル志摩スペイン村→鵜方駅）
@@ -264,18 +253,35 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     departure: "ホテル志摩スペイン村",
     arrival: "鵜方駅",
     travel_time: 10,
-    transportation: 3, # たとえば 3 = バス
+    transportation: 2, # たとえば 3 = バス
     description: nil,
-    visit_order: 6
+    visit_order: 5
   )
   # spot4 にルートをネスト（鵜方駅→鳥羽駅）
   spot4.routes.build(
     departure: "鵜方駅",
     arrival: "鳥羽駅",
     travel_time: 15,
-    transportation: 2, #電車
+    transportation: 1, #電車
+    description: nil,
+    visit_order: 6
+  )
+  spot4.routes.build(
+    departure: "鳥羽駅",
+    arrival: "鳥羽マリンターミナル",
+    travel_time: 10,
+    transportation: 0, #徒歩
     description: nil,
     visit_order: 7
+  )
+  # spot5にルートをネスト（真珠島・水族館のりば→鳥羽水族館）
+  spot5.routes.build(
+    departure: "真珠島・水族館のりば",
+    arrival: "鳥羽水族館",
+    travel_time: 1,
+    transportation: 0, #徒歩
+    description: nil,
+    visit_order: 8
   )
 
 end

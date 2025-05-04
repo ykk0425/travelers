@@ -26,8 +26,8 @@
 
 
   <% @plan.spots.order(:visit_order).each do |spot| %>
-    <div class="spot">
-      <p><i class="fa-solid fa-location-dot"></i>: <%= spot.name %></p>
+    <div class="spot my-4">
+      <h4><i class="fa-solid fa-location-dot"></i>: <%= spot.name %></h4>
         <% if spot.images.attached? %>
           <div class="row">
             <% spot.images.each do |image| %>
@@ -38,7 +38,7 @@
           </div>
         <% end %>
       <p><% if spot.explanation.present? %>
-           <i class="fa-regular fa-comment"></i>: <%= spot.explanation %>
+           <i class="fa-solid fa-comment"></i></i>: <%= spot.explanation %>
          <% end %>
       </p>
       <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
@@ -51,11 +51,8 @@
         <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
         <p>移動時間: <%= route.travel_time %>分</p> 
           <% if route.description.present? %>
-            <i class="fa-regular fa-comment"></i>: <%= route.description %>
+            <i class="fa-solid fa-comment"></i>: <%= route.description %>
           <% end %>
-        <div style="ms-5">
-           <i class="fa-solid fa-angles-down"></i>
-        </div>
       <% end %>
     </div>
   <% end %>
