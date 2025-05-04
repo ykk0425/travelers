@@ -3,7 +3,7 @@
 
   <div>
     <h4><%= @user.name %></h4>
-    <%= image_tag @user.get_profile_image(100,100) %>
+    <%= image_tag @user.get_profile_image(200,200) %>
 
     <% if @user == current_user && !@user.guest_user? %>
       <p><%= link_to "編集", edit_user_registration_path, class: 'btn btn-outline-info mb-3' %></p>

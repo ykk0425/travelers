@@ -21,27 +21,29 @@
   </p>
 
   <% if @plan.body.present? %>
-    プランについて:<%= @plan.body %>
+    <i class="fa-regular fa-comment"></i>:<%= @plan.body %>
   <% end %>
 
 
   <% @plan.spots.order(:visit_order).each do |spot| %>
     <div class="spot">
-      <p>スポット名: <%= spot.name %></p>
+      <p><i class="fa-solid fa-location-dot"></i>: <%= spot.name %></p>
         <% if spot.images.attached? %>
           <div class="row">
             <% spot.images.each do |image| %>
-              <div class="mb-3">
+              <div class="m-3">
                 <%= image_tag image.variant(resize_to_limit: [400, 300]) %>
               </div>
             <% end %>
           </div>
         <% end %>
-      <p>滞在時間: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
-        <% if spot.explanation.present? %>
-          説明: <%= spot.explanation %>
-        <% end %>
-      <p>(緯度軽度用いて)マップ表示予定</p>
+      <p><% if spot.explanation.present? %>
+           <i class="fa-regular fa-comment"></i>: <%= spot.explanation %>
+         <% end %>
+      </p>
+      <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
+
+      <p><i class="fa-solid fa-map-location-dot"></i>(緯度軽度用いて)マップ表示予定</p> 
 
 
       <% spot.routes.order(:visit_order).each do |route| %>
@@ -49,13 +51,17 @@
         <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
         <p>移動時間: <%= route.travel_time %>分</p> 
           <% if route.description.present? %>
-            説明: <%= route.description %>
+            <i class="fa-regular fa-comment"></i>: <%= route.description %>
           <% end %>
+        <div style="ms-5">
+           <i class="fa-solid fa-angles-down"></i>
+        </div>
       <% end %>
     </div>
   <% end %>
 
-
-  <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm' %> |
-  <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm' %>
+  <% if @user == current_user %>
+    <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm' %> |
+  <% end %>
+    <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm' %>
 </div>
