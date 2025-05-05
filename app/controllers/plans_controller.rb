@@ -1,4 +1,8 @@
 class PlansController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update]
+  #ログインユーザー以外の投稿編集画面のURLを入力する→投稿一覧へリダイレクトするように
+  #private ensure_correct_user定義記述
+  before_action :ensure_correct_user, only: [:edit, :update]
   before_action :set_plan, only: %i[ show edit update destroy ]
 
   # GET /plans or /plans.json
@@ -71,4 +75,14 @@ class PlansController < ApplicationController
           ]
         ])
     end
+
+    #ログインユーザー以外の投稿編集画面のURLを入力する→投稿一覧へリダイレクトするように
+    #before_action :ensure_correct_user, only: [:edit, :update]定義
+    def ensure_correct_user
+      @plan = Plan.find(params[:id])
+      unless @plan.user == current_user
+        redirect_to plans_path
+      end
+    end
+
 end
