@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  #非ログイン時に、新規投稿・詳細ページ・編集ページのURLを入力するとログインページにリダイレクト（デフォルトでログインページ）
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update]
   #ログインユーザー以外の投稿編集画面のURLを入力する→投稿一覧へリダイレクトするように
   #private ensure_correct_user定義記述
