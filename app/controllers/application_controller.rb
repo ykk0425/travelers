@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def after_update_path_for(resource)
+    mypage_path
+  end
+  
 end

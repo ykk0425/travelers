@@ -57,7 +57,7 @@
     </div>
   <% end %>
 
-  <% if @user == current_user %>
+  <% if @plan.user == current_user %>
     <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm' %> |
   <% end %>
     <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm' %>

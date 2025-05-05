@@ -52,7 +52,7 @@ class PlansController < ApplicationController
     @plan.destroy
 
     respond_to do |format|
-      format.html { redirect_to plans_path, status: :see_other, notice: "Plan was successfully destroyed." }
+      format.html { redirect_to mypage_path, notice: "Plan was successfully destroyed." }
       format.json { head :no_content }
     end
   end
