@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about', as: 'about'
   get 'users/mypage' => 'users#mypage', as: 'mypage'
   resources :users, only: [:show, :index]
-  resources :plans
+  resources :plans do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :spots do
     resources :spot_images, only: [:destroy]
   end
   get "search" => "seaches#search"
+  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
