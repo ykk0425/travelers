@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belong_to :plan
+  belongs_to :plan
 end
