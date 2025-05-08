@@ -7,6 +7,11 @@ class CommentsController < ApplicationController
     comment.save
     redirect_to plan_path(plan)
   end
+
+  def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to plan_path(params[:plan_id])
+  end
   
   private
 
