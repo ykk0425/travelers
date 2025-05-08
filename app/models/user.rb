@@ -29,4 +29,18 @@ class User < ApplicationRecord
     end
   end
 
+  def self.looks(search, word) #self.looks クラス全体にlooksメソッド使うためにself.使ってる。
+    if search == "perfect_match" #完全一致の場合
+      User.where("name LIKE?", "#{word}")
+    elsif search == "forward_match" #前方一致
+      User.where("name LIKE?","#{word}%")
+    elsif search == "backward_match" #後方一致
+      User.where("name LIKE?","%#{word}")
+    elsif search == "partial_match" #部分一致
+      User.where("name LIKE?","%#{word}%")
+    else
+      User.all #上の検索条件に当てはまらなかったら、全ユーザ取得する
+    end
+  end
+
 end

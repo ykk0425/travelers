@@ -1,0 +1,32 @@
+<h3>検索結果</h3>
+
+<table>
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "User" %>
+    <% if @users.present? %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% else %>
+      <p>該当するユーザーは見つかりませんでした。</p>
+    <% end %>
+
+  <% elsif @range == "Plan" %>
+    <% if @plans.present? %>
+      <tbody>
+        <% @plans.each do |plan| %>
+          <tr>
+            <td><%= plan.title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% else %>
+      <p>該当する旅行プランは見つかりませんでした。</p>
+    <% end %>
+  <% end %>
+
+</table>
