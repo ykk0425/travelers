@@ -6,12 +6,15 @@ class UsersController < ApplicationController
     @plans = @user.plans
     render :show
   end
-
+ 
   def show
     @user = User.find(params[:id])
     @plans = @user.plans
   end
 
+  def index
+    @users = User.where.not(email: 'guest@example.com')
+  end
 
   def user_params
     params.require(:user).permit(:name, :profile_image)

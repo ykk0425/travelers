@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about' => 'homes#about', as: 'about'
   get 'users/mypage' => 'users#mypage', as: 'mypage'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
   resources :plans
   resources :spots do
     resources :spot_images, only: [:destroy]
