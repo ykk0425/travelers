@@ -57,6 +57,22 @@
     </div>
   <% end %>
 
+  <div>
+    <p>コメント件数：<%= @plan.comments.count %></p>
+    <% @plan.comments.each do |comment| %>
+      <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
+      <%= comment.user.name %>
+      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.text %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form_with model: [@plan, @comment] do |f| %>
+      <%= f.text_area :text, row: '5', placeholder: "コメントをここに"%>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+
   <% if @plan.user == current_user %>
     <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm' %> |
   <% end %>
