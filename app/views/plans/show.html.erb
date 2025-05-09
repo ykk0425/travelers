@@ -1,4 +1,4 @@
-<div class="container mt-
+<div class="container mt-5">
   <p id="notice"><%= notice %></p>
 
   <h2><i class="fa-solid fa-book-atlas"></i>旅行プラン</h2>
@@ -21,7 +21,7 @@
   </p>
 
   <% if @plan.body.present? %>
-    <i class="fa-regular fa-comment"></i>:<%= @plan.body %>
+    <i class="fa-regular fa-message fa-flip-horizontal"></i>:<%= @plan.body %>
   <% end %>
 
 
@@ -38,7 +38,7 @@
           </div>
         <% end %>
       <p><% if spot.explanation.present? %>
-           <i class="fa-solid fa-comment"></i></i>: <%= spot.explanation %>
+           <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= spot.explanation %>
          <% end %>
       </p>
       <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
@@ -51,34 +51,49 @@
         <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
         <p>移動時間: <%= route.travel_time %>分</p> 
           <% if route.description.present? %>
-            <i class="fa-solid fa-comment"></i>: <%= route.description %>
+            <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= route.description %>
           <% end %>
       <% end %>
     </div>
   <% end %>
 
-  <div>
-    <p>コメント件数：<%= @plan.comments.count %></p>
+<div>
+  <p><i class="fa-regular fa-comment fa-flip-horizontal"></i> コメント件数：<%= @plan.comments.count %></p>
+
     <% @plan.comments.each do |comment| %>
-      <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
-      <%= comment.user.name %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %>
-      <%= comment.text %>
-      <% if comment.user == current_user %>
-        <%= link_to "削除", plan_comment_path(comment.plan, comment), method: :delete %>
-      <% end %>
+      <div class="mb-4 p-3 border rounded">
+        <div class="d-flex align-items-start">
+          <div class="me-3">
+            <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
+          </div>
+
+          <div>
+            <div class="fw-bold"><%= comment.user.name %></div>
+            <div class="text-muted small"><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+           </div>
+        </div>
+
+        <div class="mt-2 d-flex justify-content-between align-items-start">
+          <p class="mb-1"><%= comment.text %></p>
+
+          <% if comment.user == current_user %>
+            <%= link_to "削除", plan_comment_path(comment.plan, comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-outline-danger ms-3 " %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 
-  <div>
+
+  <div class="text-end">
     <%= form_with model: [@plan, @comment], local: true do |f| %>
-      <%= f.text_area :text, row: '5', placeholder: "コメントをここに", required: true %>
-      <%= f.submit "送信する" %>
+      <%= f.text_area :text, rows: '5', placeholder: "コメントを投稿しよう！", required: true, class: 'form-control mb-2' %>
+      <%= f.submit "送信する", class: 'btn btn-outline-secondary btn-sm' %>
     <% end %>
   </div>
 
   <% if @plan.user == current_user %>
-    <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm' %> |
+    <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm mt-5' %> 
   <% end %>
-    <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm' %>
+    <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm mt-5' %>
 </div>

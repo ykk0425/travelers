@@ -1,32 +1,38 @@
-<h3>検索結果</h3>
+<div class="container mt-5">
+  <h2 class="mb-4">
+  <i class="fa-solid fa-magnifying-glass"></i> 検索結果
+  </h2>
 
-<table>
   <!--検索対象モデルがUserの時 -->
   <% if @range == "User" %>
     <% if @users.present? %>
-      <tbody>
+      <div class="row">
         <% @users.each do |user| %>
-          <tr>
-            <td><%= user.name %></td>
-          </tr>
+          <div class="col-md-4 mb-3">
+            <div class="text-center p-3 border rounded">
+              <%= link_to user.name, user_path(user), class: 'text-dark text-decoration-none' %>
+            </div>
+          </div>
         <% end %>
-      </tbody>
+      </div>
     <% else %>
       <p>該当するユーザーは見つかりませんでした。</p>
     <% end %>
 
   <% elsif @range == "Plan" %>
     <% if @plans.present? %>
-      <tbody>
+      <div class="row">
         <% @plans.each do |plan| %>
-          <tr>
-            <td><%= plan.title %></td>
-          </tr>
+          <div class="col-md-4 mb-3">
+            <div class="text-center p-3 border rounded">
+              <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
+            </div>
+          </div>
         <% end %>
-      </tbody>
+      </div>
     <% else %>
       <p>該当する旅行プランは見つかりませんでした。</p>
     <% end %>
   <% end %>
 
-</table>
+  </div>
