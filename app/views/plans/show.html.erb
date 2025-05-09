@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-
   <p id="notice"><%= notice %></p>
 
   <h2><i class="fa-solid fa-book-atlas"></i>旅行プラン</h2>
@@ -62,7 +62,8 @@
     <% @plan.comments.each do |comment| %>
       <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
       <%= comment.user.name %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.text %>
+      <%= comment.created_at.strftime('%Y/%m/%d') %>
+      <%= comment.text %>
       <% if comment.user == current_user %>
         <%= link_to "削除", plan_comment_path(comment.plan, comment), method: :delete %>
       <% end %>
@@ -70,8 +71,8 @@
   </div>
 
   <div>
-    <%= form_with model: [@plan, @comment] do |f| %>
-      <%= f.text_area :text, row: '5', placeholder: "コメントをここに"%>
+    <%= form_with model: [@plan, @comment], local: true do |f| %>
+      <%= f.text_area :text, row: '5', placeholder: "コメントをここに", required: true %>
       <%= f.submit "送信する" %>
     <% end %>
   </div>
