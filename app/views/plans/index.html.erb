@@ -10,6 +10,7 @@
       <div class="col-md-4 mb-3">
         <div class="text-center p-3 border rounded">
           <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
+            <div class="text-muted small">コメント数: <%= plan.comments.count %></div>
         </div>
       </div>
     <% end %>
