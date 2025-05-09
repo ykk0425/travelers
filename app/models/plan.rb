@@ -17,13 +17,13 @@ class Plan < ApplicationRecord
 
   def self.looks(search, word) #self.looks クラス全体にlooksメソッド使うためにself.使ってる。
     if search == "perfect_match" #完全一致の場合
-      Plan.where("name LIKE?", "#{word}")
+      Plan.where("title LIKE?", "#{word}")
     elsif search == "forward_match" #前方一致
-      Plan.where("name LIKE?","#{word}%")
+      Plan.where("title LIKE?","#{word}%")
     elsif search == "backward_match" #後方一致
-      Plan.where("name LIKE?","%#{word}")
+      Plan.where("title LIKE?","%#{word}")
     elsif search == "partial_match" #部分一致
-      Plan.where("name LIKE?","%#{word}%")
+      Plan.where("title LIKE?","%#{word}%")
     else
       Plan.all #上の検索条件に当てはまらなかったら、全ユーザ取得する
     end
