@@ -1,4 +1,4 @@
-class SpotImagesController < ApplicationController
+class Public::SpotImagesController < ApplicationController
   def destroy
     spot = Spot.find(params[:spot_id])
     image = spot.images.find(params[:id])

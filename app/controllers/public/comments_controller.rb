@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Public::CommentsController < ApplicationController
 
   def create
     plan = Plan.find(params[:plan_id])
