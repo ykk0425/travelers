@@ -1,8 +1,7 @@
 # frozen_string_literal: true
-
 class Admin::SessionsController < Devise::SessionsController
   layout 'admin' #admin.html.erbを適用するため
-
+ 
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
