@@ -4,10 +4,7 @@
   <div>
     <h4><%= @user.name %></h4>
     <%= image_tag @user.get_profile_image(200,200) %>
-
-    <% if @user == current_user.admin %>
-      <p><%= link_to "退会", admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-danger mb-2' %></p>
-    <% end %>
+    <p><%= link_to "退会", admin_user_path(@user), method: :delete, data: { confirm: '本当に退会させますか？' }, class: 'btn-danger mb-2' %></p>
   </div>
-
+</div>
  
