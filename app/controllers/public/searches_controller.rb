@@ -10,7 +10,7 @@ class Public::SearchesController < ApplicationController
       @plans = Plan.looks(params[:search], params[:word]) #@plansにPlanモデル内での検索結果代入
     end
 
-    render 'searches/search_result'
+    render 'public/searches/search_result'
     #検索結果search_resultビューファイル表示
 
   end
