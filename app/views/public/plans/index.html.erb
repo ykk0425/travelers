@@ -1,0 +1,26 @@
+<div class="container-fluid mt-4 d-flex justify-content-end pe-5">
+  <%= render 'public/searches/search' %>
+</div>
+
+<div class="container mt-5">
+  <h2 class="mb-4">
+    <i class="fa-solid fa-person-walking-luggage"></i> プラン一覧
+  </h2>
+
+  <div class="row">
+    <% @plans.each do |plan| %>
+      <div class="col-md-4 mb-3">
+        <div class="text-center p-3 border rounded">
+          <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
+            <div class="text-muted small"><i class="fa-regular fa-comment fa-flip-horizontal"></i>：<%= plan.comments.count %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-5">
+    <%= link_to 'ユーザー一覧', users_path, class: 'btn btn-outline-secondary btn-sm' %>
+  </div>
+
+
+</div>
