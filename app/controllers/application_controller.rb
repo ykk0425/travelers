@@ -1,5 +1,14 @@
 class ApplicationController < ActionController::Base
+  #ログイン認証が成功していないと、トップ/アバウトページ以外の画面(ログイン/サインアップ除く)表示されないように
+  #エンドユーザー側のauthenticate_user!フィルターが適用されないように。かわりに管理者用コントローラで認証（authenticate_admin!)する
+  before_action :authenticate_user!, except: [:top, :about], unless: :admin_controller? 
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  private
+  
+  def admin.controller?
+    self.class.module_parent_name == 'Admin'
+  end
 
   protected
 
