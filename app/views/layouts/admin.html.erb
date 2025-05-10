@@ -4,15 +4,32 @@
   <title>Admin - Travelers</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <script src="https://kit.fontawesome.com/dc91daef60.js" crossorigin="anonymous"></script>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <% if admin_signed_in? %>
-    <div class="text-right">
-      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+  <header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <%= image_tag('logo.png') %>
+      <% if admin_signed_in? %>
+        <div class="text-right">
+          <%= link_to destroy_admin_session_path, method: :delete, class:'nav-link text-dark' do %>
+            <i class="fa-solid fa-right-from-bracket"></i>管理者ログアウト
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-right">
+          <%= link_to new_admin_session_path, class:'nav-link text-dark' do %>
+            <i class="fa-solid fa-right-to-bracket"></i>管理者ログイン
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </nav>
+  </header>
   <%= yield %>
 </body>
 </html>
+
