@@ -7,42 +7,29 @@
     </p>
 
     <div class="row">
-      <div class="col-md-6">
-        <h4>「自分で考えたプランで旅行に行く人」！！</h4>
-        <p>たくさん調べたのに旅行後しばらく経つと忘れてしまって、<br>
-           どうやって行ったけ？ってなることありませんか？</p>
-        <p>またこのプランで行きたいな〜と思っても忘れちゃうと勿体ナイ！！</p>
-        <p>旅の思い出を残して、いつでも振り返れるようにしよう！</p>
-        <p>旅行プランを投稿して、次の旅にも活かせる記録を作ろう！！</p>
-
-        <%= link_to users_guest_sign_in_path, method: :post, class:'btn btn-outline-info mb-3' do %>
-          <i class="fa-solid fa-face-grin-squint"></i> Guest Log in（閲覧用）
-        <% end %>
-        <%= link_to new_user_session_path, class:'btn btn-info mb-3' do %>
-          <i class="fa-solid fa-right-to-bracket"></i>  Log in
-        <% end %>
-        <%= link_to new_user_registration_path, class:'btn btn-info mb-3' do %>
-          <i class="fa-solid fa-user-plus"></i> Sign up
-        <% end %>
+      <div class="col-md-6 d-flex mt-4">
+        <div class="border rounded p-4 shadow-sm w-100">
+          <h4>「自分で考えたプランで旅行に行く人」！！</h4>
+          <p>たくさん調べたのに旅行後しばらく経つと忘れてしまって、<br>
+             どうやって行ったけ？ってなることありませんか？</p>
+          <p>またこのプランで行きたいな〜と思っても忘れちゃうと<br>
+             勿体ナイ！！</p>
+          <p>旅の思い出を残して、いつでも振り返れるようにしよう！</p>
+          <p>旅行プランを投稿して、次の旅にも活かせる記録を作ろう！！</p>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h4>「旅行は好きだけどプランを立てるのはちょっと苦手...」な方！！</h4>
-        <p>どこに行こう？どうやって行こう？<br>
-           目的地は決まったけど他どうしよう、、？
-        </p>
-        <p>迷いすぎてせっかくの旅行なのにプランニングで疲れちゃう！って時！</p>
-        <p>誰かの旅行プランを参考にして、素敵なスポットに出会おう！</p>
-        <p>プランに迷ったとき、きっと役に立つアイデアがあるかもしれない！ </p>
-
-        <%= link_to users_guest_sign_in_path, method: :post, class:'btn btn-outline-info mb-3' do %>
-          <i class="fa-solid fa-face-grin-squint"></i> Guest Log in（閲覧用）
-        <% end %>
-        <%= link_to new_user_session_path, class:'btn btn-info mb-3' do %>
-          <i class="fa-solid fa-right-to-bracket"></i>  Log in
-        <% end %>
-        <%= link_to new_user_registration_path, class:'btn btn-info mb-3' do %>
-          <i class="fa-solid fa-user-plus"></i> Sign up
-        <% end %>
+      <div class="col-md-6 d-flex mt-4">
+        <div class="border rounded p-4 shadow-sm bg-white w-100">
+          <h4>「旅行は好きだけどプランを立てるのはちょっと苦手...」な方！！</h4>
+          <p>どこに行こう？どうやって行こう？<br>
+             目的地は決まったけど他どうしよう、、？
+          </p>
+          <p>迷いすぎてせっかくの旅行なのに・・<br>
+          プランニングで疲れちゃう・・。って時！</p>
+          <p>誰かの旅行プランを参考にして、素敵なスポットに出会おう！</p>
+          <p>プランに迷ったとき、<br>
+          きっと役に立つアイデアがあるかもしれない！ </p>
+        </div>
       </div>
     </div>
 </div>
