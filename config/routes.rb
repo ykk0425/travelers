@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-    #管理者新規登録・パスワード機能は不要とするため、不要となるルーティングをスキップする↓
-    devise_for :admin, skip: [:registrations, :password], controllers: {
-      sessions: 'admin/sessions'
-    }
+  #管理者新規登録・パスワード機能は不要とするため、不要となるルーティングをスキップする↓
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
   
+  namespace :admin do
+    get 'dashboards', to: 'dashboards#index'
+  end
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
