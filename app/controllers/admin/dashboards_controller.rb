@@ -1,5 +1,5 @@
 class Admin::DashboardsController < ApplicationController
-
+  layout 'admin' #admin.html.erbを適用するため
   before_action :authenticate_admin!
   
   def index
