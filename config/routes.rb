@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    devise_for :users, controllers: { registrations: 'users/registrations' }
+    devise_for :users, controllers: { 
+      sessions: 'public/users/sessions',
+      registrations: 'public/users/registrations' 
+    }
     devise_scope :user do
       post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
     end
