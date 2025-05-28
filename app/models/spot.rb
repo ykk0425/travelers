@@ -8,7 +8,11 @@ class Spot < ApplicationRecord
   validates :staying_start, presence: true
   validates :staying_end, presence: true
   validates :visit_order, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  
+  validates :address, presence: true
 
+  geocoded_by :address
+  after_validation :geocode
 
   validate :start_end_check
 
