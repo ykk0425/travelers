@@ -60,6 +60,8 @@ gem 'cocoon'
 gem 'enum_help'
 
 gem 'dotenv-rails'
+gem 'geocoder'  #位置情報を扱うための
+
 group :production do
   gem 'mysql2'
 end
