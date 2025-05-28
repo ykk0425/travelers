@@ -44,7 +44,7 @@
       <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
 
       <p>
-        <%= link_to spot_map_path(spot),class: "text-blue-500" do %>
+        <%= link_to spot_path(spot),class: "text-blue-500" do %>
            <i class="fa-solid fa-map-location-dot"></i> <%= spot.address %>
         <% end %>
       </p> 
