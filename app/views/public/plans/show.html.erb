@@ -43,7 +43,7 @@
       </p>
       <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
 
-      <p><i class="fa-solid fa-map-location-dot"></i>(緯度軽度用いて)マップ表示予定</p> 
+      <p><i class="fa-solid fa-map-location-dot"></i> <%= spot.address %></p> 
 
 
       <% spot.routes.order(:visit_order).each do |route| %>
