@@ -8,13 +8,13 @@
     <div class="input-group-prepend">
       <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-tenge-sign"></i></span>
     </div>
-    <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "郵便番号" %>
+      <input type="text" id="zipcode" class= "form-control" placeholder="000-0000" />
   </div>
   <div class="input-group mb-3 mt-4">
     <div class="input-group-prepend">
       <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
     </div>
-    <%= f.text_field :address, class: "form-control", placeholder: "住所" %>
+    <input type="text" id="spot_address" class= "form-control" placeholder="住所" />
   </div>
 
   <div class="field">
@@ -42,15 +42,6 @@
     <%= f.datetime_select :staying_end %>
   </div>
 
-  <div class="field">
-    <%= f.label :latitude, '緯度' %><br>
-    <%= f.text_field :latitude %>
-  </div>
-
-  <div class="field">
-    <%= f.label :longitude, '経度' %><br>
-    <%= f.text_field :longitude %>
-  </div>
   
   <div class="field">
     <%= f.label :visit_order, 'スポット訪問順' %><br>
