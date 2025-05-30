@@ -8,14 +8,7 @@ class Public::PlansController < ApplicationController
 
   # GET /plans or /plans.json
   def index
-    respond_to do |format|
-      format.html do
-        @plans = Plan.all
-      end
-      format.json do
-        @plans = Plan.all
-      end
-    end
+    @plans = Plan.all
   end
 
   # GET /plans/1 or /plans/1.json
