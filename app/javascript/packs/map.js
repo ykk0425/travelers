@@ -1,22 +1,23 @@
 import { $ } from "@rails/ujs";
 
 // ライブラリの読み込み
-let map;
-const mapTarget = document.getElementById('map')
+//必要な変数の定義
+let map; 
+const mapTarget = document.getElementById('map') //mapというIDのついたHTML要素取得する
 const planId = mapTarget.dataset.mapid
 
 async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-  const {AdvancedMarkerElement} = await google.maps.importLibrary("marker") // 追記
+  const { Map } = await google.maps.importLibrary("maps");  //必要なマップやマーカーの機能を読み込み
+  const {AdvancedMarkerElement} = await google.maps.importLibrary("marker") 
 
   map = new Map(document.getElementById("map"), {
     center: { lat: 35.681236, lng: 139.767125 },
     zoom: 15,
-    mapId: "DEMO_MAP_ID", // 追記
+    mapId: "DEMO_MAP_ID", 
     mapTypeControl: false
   });
 
-  // 追記
+  
   try {
     const response = await fetch(`/plans/${planId}.json`);
     if (!response.ok) throw new Error('Network response was not ok');
@@ -38,7 +39,7 @@ async function initMap() {
         position: { lat: latitude, lng: longitude },
         map,
         title: name,
-        // 他の任意のオプションもここに追加可能
+
       });
     });
 
