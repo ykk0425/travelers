@@ -1,6 +1,6 @@
 json.data do
   json.items do
-    json.array!(@spots) do |spot|
+    json.array!(@plan.spots) do |spot|
       json.id spot.id
       json.name spot.name
       json.latitude spot.latitude

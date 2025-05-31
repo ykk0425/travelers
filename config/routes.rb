@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'spots/show'
-  end
   #管理者新規登録・パスワード機能は不要とするため、不要となるルーティングをスキップする↓
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'

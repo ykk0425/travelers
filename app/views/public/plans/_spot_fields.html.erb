@@ -6,15 +6,9 @@
 
   <div class="input-group mb-3 mt-4">
     <div class="input-group-prepend">
-      <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-tenge-sign"></i></span>
-    </div>
-      <input type="text" id="zipcode" class= "form-control" placeholder="000-0000" />
-  </div>
-  <div class="input-group mb-3 mt-4">
-    <div class="input-group-prepend">
       <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
     </div>
-    <input type="text" id="spot_address" class= "form-control" placeholder="住所" />
+    <%= f.text_field :address, class: "form-control", placeholder: "住所" %>
   </div>
 
   <div class="field">
@@ -67,4 +61,3 @@
    <%= link_to_remove_association 'スポット削除', f, class: 'btn btn-outline-danger btn-sm mb-2' %>
   </div>
 </div>
-

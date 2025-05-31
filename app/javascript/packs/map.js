@@ -4,7 +4,7 @@ import { $ } from "@rails/ujs";
 //必要な変数の定義
 let map; 
 const mapTarget = document.getElementById('map') //mapというIDのついたHTML要素取得する
-const planId = mapTarget.dataset.mapid
+const planId = mapTarget.dataset.planid
 
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");  //必要なマップやマーカーの機能を読み込み
@@ -21,7 +21,6 @@ async function initMap() {
   try {
     const response = await fetch(`/plans/${planId}.json`);
     if (!response.ok) throw new Error('Network response was not ok');
-
     const { data: { items } } = await response.json();
     if (!Array.isArray(items)) throw new Error("Items is not an array");
 
@@ -60,7 +59,7 @@ async function initMap() {
       });
     });
   } catch (error) {
-    console.error('Error fetching or processing post images:', error);
+    console.error('Error fetching or processing spots:', error);
   }
 }
 

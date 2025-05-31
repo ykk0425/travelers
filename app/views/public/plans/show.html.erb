@@ -101,7 +101,7 @@
     <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm mt-5' %>
 </div>
 <div class="container">
-  <div id="map" data-mapid=<%= @plan.id %></div>
+  <div id="map" data-planid='<%= @plan.id %>'</div>
 </div>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>

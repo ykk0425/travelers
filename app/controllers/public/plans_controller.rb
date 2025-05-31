@@ -15,7 +15,7 @@ class Public::PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @comment = Comment.new
-    @spots = @plan.spots
+    #@spots = @plan.spots
   end
 
   # GET /plans/new
