@@ -4,6 +4,13 @@
     <%= f.text_field :name %>
   </div>
 
+  <div class="input-group mb-3 mt-4">
+    <div class="input-group-prepend">
+      <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+    </div>
+    <%= f.text_field :address, class: "form-control", placeholder: "住所" %>
+  </div>
+
   <div class="field">
     <%= f.label :images, '写真(複数まとめて選択OK)' %><br>
     <%= f.file_field :images, multiple: true %>
@@ -29,15 +36,6 @@
     <%= f.datetime_select :staying_end %>
   </div>
 
-  <div class="field">
-    <%= f.label :latitude, '緯度' %><br>
-    <%= f.text_field :latitude %>
-  </div>
-
-  <div class="field">
-    <%= f.label :longitude, '経度' %><br>
-    <%= f.text_field :longitude %>
-  </div>
   
   <div class="field">
     <%= f.label :visit_order, 'スポット訪問順' %><br>

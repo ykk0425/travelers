@@ -15,6 +15,7 @@ class Public::PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @comment = Comment.new
+    #@spots = @plan.spots
   end
 
   # GET /plans/new
@@ -72,7 +73,7 @@ class Public::PlansController < ApplicationController
     # planパラメータ
     def plan_params
       params.require(:plan).permit(:user_id, :title, :review, :start_date, :end_date, :body,
-        spots_attributes: [:id, :name, :latitude, :longitude, :visit_order, :staying_start, :staying_end, :explanation, :_destroy, {images: []},
+        spots_attributes: [:id, :name, :latitude, :address, :longitude, :visit_order, :staying_start, :staying_end, :explanation, :_destroy, {images: []},
           routes_attributes: [:id, :departure, :arrival, :travel_time, :transportation, :description, :visit_order, :_destroy
           ]
         ])

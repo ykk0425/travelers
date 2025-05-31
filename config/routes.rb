@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #管理者新規登録・パスワード機能は不要とするため、不要となるルーティングをスキップする↓
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
@@ -27,6 +28,8 @@ Rails.application.routes.draw do
     end
     resources :spots do
       resources :spot_images, only: [:destroy]
+              #プラン詳細にマップ表示する
+      resource :map, only: [:show]
     end
     get "search" => "searches#search"
   end

@@ -24,38 +24,41 @@
     <i class="fa-regular fa-message fa-flip-horizontal"></i>:<%= @plan.body %>
   <% end %>
 
-
-  <% @plan.spots.order(:visit_order).each do |spot| %>
-    <div class="spot my-4">
-      <h4><i class="fa-solid fa-location-dot"></i>: <%= spot.name %></h4>
-        <% if spot.images.attached? %>
-          <div class="row">
-            <% spot.images.each do |image| %>
-              <div class="m-3">
-                <%= image_tag image.variant(resize_to_limit: [400, 300]) %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      <p><% if spot.explanation.present? %>
-           <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= spot.explanation %>
-         <% end %>
-      </p>
-      <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
-
-      <p><i class="fa-solid fa-map-location-dot"></i>(緯度軽度用いて)マップ表示予定</p> 
-
-
-      <% spot.routes.order(:visit_order).each do |route| %>
-        <p>出発地: <%= route.departure %> → 到着地: <%= route.arrival %></p>
-        <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
-        <p>移動時間: <%= route.travel_time %>分</p> 
-          <% if route.description.present? %>
-            <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= route.description %>
+  <div id="spots">
+    <% @plan.spots.order(:visit_order).each do |spot| %>
+      <div class="spot my-4">
+        <h4><i class="fa-solid fa-location-dot"></i>: <%= spot.name %></h4>
+          <% if spot.images.attached? %>
+            <div class="row">
+              <% spot.images.each do |image| %>
+                <div class="m-3">
+                  <%= image_tag image.variant(resize_to_limit: [400, 300]) %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
-      <% end %>
-    </div>
-  <% end %>
+        <p><% if spot.explanation.present? %>
+            <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= spot.explanation %>
+          <% end %>
+        </p>
+        <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
+
+        <p class="text-blue-500 spot-address" style="color:blue;" data-spotid=<%= spot.id %>>
+            <i class="fa-solid fa-map-location-dot"></i> <%= spot.address %>
+        </p> 
+
+
+        <% spot.routes.order(:visit_order).each do |route| %>
+          <p>出発地: <%= route.departure %> → 到着地: <%= route.arrival %></p>
+          <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
+          <p>移動時間: <%= route.travel_time %>分</p> 
+            <% if route.description.present? %>
+              <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= route.description %>
+            <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
 <div>
   <p><i class="fa-regular fa-comment fa-flip-horizontal"></i> コメント件数：<%= @plan.comments.count %></p>
@@ -97,3 +100,8 @@
   <% end %>
     <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm mt-5' %>
 </div>
+<div class="container">
+  <div id="map" data-planid='<%= @plan.id %>'</div>
+</div>
+
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
