@@ -38,8 +38,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     name: "二見興玉神社(夫婦岩）",
     explanation: "海に浮かぶ2つの岩が有名なパワースポット。",
     visit_order: 1,
-    longitude:136.802183,
-    latitude: 34.303247,
+    address: "三重県伊勢市二見町江575",
     staying_start: DateTime.new(2023,11,3,9,30),
     staying_end:   DateTime.new(2023,11,3,10,10)
   )
@@ -55,8 +54,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     name: "伊勢神宮 外宮",
     explanation: "日本一有名な神社のひとつ。正式参拝ルートなぞって外宮から。",
     visit_order: 2,
-    longitude: 136.703579,
-    latitude: 34.487471,
+    address: "三重県伊勢市豊川町279",
     staying_start: DateTime.new(2023,11,3,11,0),
     staying_end:   DateTime.new(2023,11,3,12,0)
   )
@@ -66,8 +64,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     name: "おかげ横丁",
     explanation: "江戸時代の町並みを再現した観光スポット！ここで昼食とお土産探し！",
     visit_order: 3,
-    longitude: 136.722823,
-    latitude: 34.462801,
+    address: "三重県伊勢市宇治中之切町52",
     staying_start: DateTime.new(2023,11,3,12,30),
     staying_end:   DateTime.new(2023,11,3,14,30)
   )
@@ -80,8 +77,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     name: "伊勢神宮 内宮",
     explanation: "日本一有名な神社のひとつ。",
     visit_order: 4,
-    longitude: 136.726020,
-    latitude: 34.459319,
+    address: "三重県伊勢市宇治館町1",
     staying_start: DateTime.new(2023,11,3,14,45),
     staying_end:   DateTime.new(2023,11,3,16,00)
   )
@@ -142,8 +138,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     name: "伊勢シーパラダイス",
     explanation: "距離感がすごく近い水族館！ふれあいの多さに子どもも大喜び！じっくり回って大満足です！",
     visit_order: 1,
-    longitude: 136.803720,
-    latitude: 34.313526,
+    address: "三重県伊勢市二見町江580",
     staying_start: DateTime.new(2024,8,1,12,0),
     staying_end:   DateTime.new(2025,8,1,15,0)
   )
@@ -158,8 +153,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     name: "ホテル志摩スペイン村",
     explanation: "志摩スペイン村”公式ホテルに宿泊！",
     visit_order: 2,
-    longitude: 136.7525,
-    latitude: 34.4836,
+    address: "三重県志摩市磯部町坂崎",
     staying_start: DateTime.new(2024,8,1,17,0),
     staying_end:   DateTime.new(2024,8,3,10,0)
   )
@@ -169,8 +163,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     name: "志摩スペイン村",
     explanation: "一日中志摩スペイン村を堪能！アトラクションもたくさん乗って楽しかったみたい！",
     visit_order: 3,
-    longitude: 136.845004,
-    latitude: 34.360693,
+    address: "三重県志摩市磯部町坂崎字下山952-4",
     staying_start: DateTime.new(2024,8,2,9,0),
     staying_end:   DateTime.new(2024,8,2,20,0)
   )
@@ -187,8 +180,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     name: "鳥羽湾めぐりとイルカ島",
     explanation: "普段のることのない大きい船に乗ってイルカのいる島へ！",
     visit_order: 4,
-    longitude: 136.844946,
-    latitude: 34.49007,
+    address: "三重県鳥羽市鳥羽1丁目2383番地51",
     staying_start: DateTime.new(2024,8,3,10,0),
     staying_end:   DateTime.new(2024,8,3,12,0)
   )
@@ -198,8 +190,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     name: "鳥羽水族館",
     explanation: "ジュゴンに会える水族館！",
     visit_order: 5,
-    longitude: 136.8460367,
-    latitude: 34.4812397,
+    address: "三重県鳥羽市鳥羽3-3-6",
     staying_start: DateTime.new(2024,8,3,13,10),
     staying_end:   DateTime.new(2024,8,3,16,00)
   )
