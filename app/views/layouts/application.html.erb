@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <%= link_to users_guest_sign_in_path, method: :post, class:'nav-link text-dark' do %>
-                    <i class="fa-solid fa-face-grin-squint"></i> Guest Log in（閲覧用）
+                    <i class="fa-solid fa-face-grin-squint"></i> ゲスト Log in（閲覧用）
                   <% end %>
                 </li>
                 <li>
@@ -75,7 +75,7 @@
     </header>
 
     <main>
-      <div>
+      <div class= m-3>
         <% flash.each do |key,message| %>
           <div class="flash <%= key %>"><%= message %></div>
         <% end %> 
