@@ -1,6 +1,4 @@
 <div class="container mt-5">
-  <p id="notice"><%= notice %></p>
-
   <h2><i class="fa-solid fa-book-atlas"></i>旅行プラン</h2>
 
   <p>
@@ -60,7 +58,12 @@
     <% end %>
   </div>
 
-<div>
+  <div class="container">
+    <div id="map" data-planid='<%= @plan.id %>'</div>
+  </div>
+
+
+<div class= mt-5>
   <p><i class="fa-regular fa-comment fa-flip-horizontal"></i> コメント件数：<%= @plan.comments.count %></p>
 
     <% @plan.comments.each do |comment| %>
@@ -99,9 +102,6 @@
     <%= link_to 'プラン編集', edit_plan_path(@plan), class: 'btn btn-outline-secondary btn-sm mt-5' %> 
   <% end %>
     <%= link_to 'プラン一覧', plans_path, class: 'btn btn-outline-secondary btn-sm mt-5' %>
-</div>
-<div class="container">
-  <div id="map" data-planid='<%= @plan.id %>'</div>
 </div>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
