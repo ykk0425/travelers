@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #ユーザ情報
-taro = User.find_or_create_by!(email: "taro@example.com") do |user|
-  user.name = "旅好太郎"
-  user.password = "tabitaro"
+taro = User.find_or_create_by!(email: "tabisuki@example.com") do |user|
+  user.name = "旅好さん"
+  user.password = "tabisuki"
   user.profile_image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename: "sample-user1.jpg")
 end
 
@@ -25,13 +25,191 @@ couple = User.find_or_create_by!(email: "couple@example.com") do |user|
   user.profile_image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename: "sample-user3.jpg")
 end
 
-#旅好太郎さん投稿プラン
-#  プラン１
+honobono = User.find_or_create_by!(email: "honobono@example.com") do |user|
+  user.name = "ほのぼのさん"
+  user.password = "honobono"
+  user.profile_image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-user4.jpg"), filename: "sample-user4.jpg")
+end
+
+
+#旅好さん投稿プラン
+#プラン１
+Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
+  plan.start_date = Date.new(2022,06,16)
+  plan.end_date = Date.new(2022,06,16)
+  plan.body ="大阪から新門司港までフェリーを利用して初めての日帰りで山口へ！！"
+  plan.user = tabisuki
+  
+  #スポット1（角島大橋）
+  spot1 = plan.spots.build(
+    name: "角島大橋",
+    explanation: "絶景スポットへ！",
+    visit_order: 1,
+    address: "山口県下関市豊北町大字神田",
+    staying_start: DateTime.new(2022,06,16,07,00),
+    staying_end:   DateTime.new(2022,06,16,07,30)
+  )
+
+  spot1.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot1-1.jpg")), filename: "tabisuki-p1-spot1-1.jpg" }
+  ])
+
+  #スポット2（角島灯台）
+  spot2 = plan.spots.build(
+    name: "角島灯台",
+    explanation: "",
+    visit_order: 2,
+    address: "山口県下関市豊北町大字角島1",
+    staying_start: DateTime.new(2022,06,16,07,40),
+    staying_end:   DateTime.new(2022,06,16,08,10)
+  )
+
+  spot2.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot2-1.jpg")), filename: "tabisuki-p1-spot2-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot2-2.jpg")), filename: "tabisuki-p1-spot2-2.jpg" }
+  ])
+
+  #スポット3（元乃隅稲荷神社）
+  spot3 = plan.spots.build(
+    name: "元乃隅稲荷神社",
+    explanation: "123基の赤鳥居が海に向かって並ぶ絶景神社!!入れにくい賽銭箱に挑戦！一発で入りました♫",
+    visit_order: 3,
+    address: "山口県長門市油谷津黄498",
+    staying_start: DateTime.new(2022,06,16,09,00),
+    staying_end:   DateTime.new(2022,06,16,10,30)
+  )
+
+  spot3.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot3-1.jpg")), filename: "tabisuki-p1-spot3-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot3-2.jpg")), filename: "tabisuki-p1-spot3-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot3-3.jpg")), filename: "tabisuki-p1-spot3-3.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot3-4.jpg")), filename: "tabisuki-p1-spot3-4.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot3-5.jpg")), filename: "tabisuki-p1-spot3-5.jpg" }
+  ])
+  
+  #スポット4（ランチ）
+  spot4 = plan.spots.build(
+    name: "お食事処 花",
+    explanation: "昼食!!",
+    visit_order: 4,
+    address: "山口県長門市三隅下2900-1",
+    staying_start: DateTime.new(2022,06,16,11,00),
+    staying_end:   DateTime.new(2022,06,16,12,30)
+  )
+
+  spot4.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot4-1.jpg")), filename: "tabisuki-p1-spot4-1.jpg" }
+  ])
+  
+  #スポット5（秋吉台）
+  spot5 = plan.spots.build(
+    name: "秋吉台展望台",
+    explanation: "特別天然記念物に指定されている日本最大級のカルスト台地",
+    visit_order: 5,
+    address: "山口県美祢市秋芳町秋吉3506-2",
+    staying_start: DateTime.new(2022,06,16,13,10),
+    staying_end:   DateTime.new(2022,06,16,14,00)
+  )
+
+  spot5.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot5-1.jpg")), filename: "tabisuki-p1-spot5-1.jpg" }
+  ])
+
+  #スポット6（秋芳洞）
+  spot6 = plan.spots.build(
+    name: "秋芳洞",
+    explanation: "日本最大級の鍾乳洞",
+    visit_order: 6,
+    address: "山口県美祢市秋芳町秋吉3506-2",
+    staying_start: DateTime.new(2022,06,16,14,10),
+    staying_end:   DateTime.new(2022,06,16,15,50)
+  )
+
+  spot6.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot6-1.jpg")), filename: "tabisuki-p1-spot6-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot6-2.jpg")), filename: "tabisuki-p1-spot6-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p1-spot6-3.jpg")), filename: "tabisuki-p1-spot6-3.jpg" }
+  ])
+
+end
+
+
+#プラン2
+Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
+  plan.start_date = Date.new(2023,02,22)
+  plan.end_date = Date.new(2023,02,22)
+  plan.body = "京都の歴史的な建物が素晴らしかった！"
+  plan.user = tabisuki
+  
+  #スポット1（金閣寺）
+  spot1 = plan.spots.build(
+    name: "金閣寺",
+    explanation: "",
+    visit_order: 1,
+    address: "京都府京都市北区金閣寺町1",
+    staying_start: DateTime.new(2023,02,22,10,15),
+    staying_end:   DateTime.new(2023,02,22,11,20)
+  )
+
+  spot1.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot1-1.jpg")), filename: "tabisuki-p2-spot1-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot1-2.jpg")), filename: "tabisuki-p2-spot1-2.jpg" }
+  ])
+
+  #スポット2（BRCAFE）
+  spot2 = plan.spots.build(
+    name: "BRCAFE",
+    explanation: "抹茶パフェを食べに！！ちょうどお昼時なので一緒にお団子も",
+    visit_order: 2,
+    address: "京都府京都市北区衣笠御所ノ内1-4",
+    staying_start: DateTime.new(2023,02,22,11,25),
+    staying_end:   DateTime.new(2023,02,22,12,30)
+  )
+
+  spot2.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot2-1.jpg")), filename: "tabisuki-p2-spot2-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot2-2.jpg")), filename: "tabisuki-p2-spot2-2.jpg" }
+  ])
+
+  #スポット3（仁和寺）
+  spot3 = plan.spots.build(
+    name: "仁和寺",
+    explanation: "",
+    visit_order: 3,
+    address: " 京都府京都市右京区御室大内33",
+    staying_start: DateTime.new(2023,02,22,12,45),
+    staying_end:   DateTime.new(2023,02,22,14,00)
+  )
+
+  spot3.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot3-1.jpg")), filename: "tabisuki-p2-spot3-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot3-2.jpg")), filename: "tabisuki-p2-spot3-2.jpg" }
+  ])
+
+  #スポット4（晴明神社）
+  spot4 = plan.spots.build(
+    name: "晴明神社",
+    explanation: "厄除け、魔除けのご利益をいただきに、伺いました！",
+    visit_order: 4,
+    address: "京都府京都市北区金閣寺町1",
+    staying_start: DateTime.new(2023,02,22,14,30),
+    staying_end:   DateTime.new(2023,02,22,15,15)
+  )
+
+  spot2.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot4-1.jpg")), filename: "tabisuki-p2-spot4-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot4-2.jpg")), filename: "tabisuki-p2-spot4-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p2-spot4-3.jpg")), filename: "tabisuki-p2-spot4-3.jpg" }
+  ])
+end
+
+
+#プラン3
 Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   plan.start_date = Date.new(2023,11,3)
   plan.end_date = Date.new(2023,11,3)
   plan.body = "伊勢神宮へ"
-  plan.user = taro
+  plan.user = tabisuki
 
   # スポット1（二見浦）
   spot1 = plan.spots.build(
@@ -44,9 +222,9 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   )
 
   spot1.images.attach([
-   { io: File.open(Rails.root.join("db/fixtures/sample-spot1-1.jpg")), filename: "sample-spot1-1.jpg" },
-   { io: File.open(Rails.root.join("db/fixtures/sample-spot1-2.jpg")), filename: "sample-spot1-2.jpg" },
-   { io: File.open(Rails.root.join("db/fixtures/sample-spot1-3.jpg")), filename: "sample-spot1-3.jpg" }
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p3-spot1-1.jpg")), filename: "tabisuki-p3-spot1-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p3-spot1-2.jpg")), filename: "tabisuki-p3-spot1-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p3-spot1-3.jpg")), filename: "tabisuki-p3-spot1-3.jpg" }
   ])
 
   #スポット2 (外宮)
@@ -69,7 +247,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     staying_end:   DateTime.new(2023,11,3,14,30)
   )
   spot3.images.attach([
-   { io: File.open(Rails.root.join("db/fixtures/sample-spot3.jpg")), filename: "sample-spot3.jpg" }
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p3-spot3-1.jpg")), filename: "tabisuki-p3-spot3-1.jpg" }
   ])
   
   #スポット4 (内宮)
@@ -82,7 +260,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     staying_end:   DateTime.new(2023,11,3,16,00)
   )
   spot4.images.attach([
-   { io: File.open(Rails.root.join("db/fixtures/sample-spot4.jpg")), filename: "sample-spot4.jpg" }
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p3-spot4-1.jpg")), filename: "tabisuki-p3-spot4-1.jpg" },
   ])
 
   # spot1 にルートをネスト（鳥羽駅→二見浦 ）
@@ -124,6 +302,83 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   )
 end
 
+#プラン4
+Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
+  plan.start_date = Date.new(2024,11,01)
+  plan.end_date = Date.new(2024,11,02)
+  plan.body = "京都の歴史的な建物が素晴らしかった！"
+  plan.user = tabisuki
+  
+  #スポット1（石浦神社）
+  spot1 = plan.spots.build(
+    name: "石浦神社",
+    explanation: "金沢で最も古い神社として知られている石浦神社へ！",
+    visit_order: 1,
+    address: "石川県金沢市本多町3-1-30",
+    staying_start: DateTime.new(2024,11,01,10,50),
+    staying_end:   DateTime.new(2024,11,01,11,50)
+  )
+
+  spot1.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot1-1.jpg")), filename: "tabisuki-p4-spot1-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot1-2.jpg")), filename: "tabisuki-p4-spot1-2.jpg" }
+  ])
+
+  #スポット2（ランチ）
+  spot2 = plan.spots.build(
+    name: "お食事処堤亭",
+    explanation: "金沢料理の治部煮うどん！！",
+    visit_order: 2,
+    address: "石川県金沢市兼六町1-15",
+    staying_start: DateTime.new(2024,11,01,12,00),
+    staying_end:   DateTime.new(2024,11,01,13,00)
+  )
+  
+  spot2.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot2-1.jpg")), filename: "tabisuki-p4-spot2-1.jpg" }
+  ])
+
+  #スポット3（兼六園）
+  spot3 = plan.spots.build(
+    name: "兼六園",
+    explanation: "日本三名園の兼六園へ！",
+    visit_order: 3,
+    address: "石川県金沢市兼六町1",
+    staying_start: DateTime.new(2024,11,01,13,10),
+    staying_end:   DateTime.new(2024,11,01,14,30)
+  )
+
+  spot3.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot3-1.jpg")), filename: "tabisuki-p4-spot3-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot3-2.jpg")), filename: "tabisuki-p4-spot3-2.jpg" }
+  ])
+
+  #スポット4（金澤神社）
+  spot4 = plan.spots.build(
+    name: "金澤神社",
+    explanation: "兼六園に隣接する金澤神社",
+    visit_order: 4,
+    address: "石川県金沢市兼六町1-3",
+    staying_start: DateTime.new(2024,11,01,14,30),
+    staying_end:   DateTime.new(2024,11,01,15,00)
+  )
+
+  spot1.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot4-1.jpg")), filename: "tabisuki-p4-spot4-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/tabisuki-p4-spot4-2.jpg")), filename: "tabisuki-p4-spot4-2.jpg" }
+  ])
+  #スポット5（金沢城公園）
+
+  #スポット6（尾山神社）
+  #スポット7（夜ごはん）
+  #スポット8（ホテル）
+  #スポット9（安江八幡宮）
+  #スポット10（兎橋神社）
+  #スポット11（ひがし茶屋街）
+  #スポット12（宇多須神社）
+  #スポット13（小坂神社）
+
+end
 
 #旅好きママさん投稿プラン
 #プラン1
