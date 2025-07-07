@@ -1195,3 +1195,210 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
 end
 
 #恋するカップルプラン2
+Plan.find_or_create_by!(title: "城崎温泉") do |plan|
+  plan.start_date = Date.new(2024,1,14)
+  plan.end_date = Date.new(2024,1,15)
+  plan.body = "温泉＆カニ最高でした！！駅についたらすぐ温泉街でお土産やさんもカフェもありよかったです！"
+  plan.user = couple
+
+  #スポット1(昼食)
+    spot1 = plan.spots.build(
+    name: "おけしょう鮮魚の海中苑 本店",
+    explanation: "nil",
+    visit_order: 1,
+    address: "兵庫県豊岡市城崎町湯島132",
+    staying_start: DateTime.new(2024,1,14,11,30),
+    staying_end:   DateTime.new(2024,1,14,12,30)
+  )
+  spot1.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot1-1.jpg")), filename: "couple-p2-spot1-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot1-2.jpg")), filename: "couple-p2-spot1-2.jpg" }
+  ])
+
+  #スポット2(城崎プリンkiman生萬)
+  spot2 = plan.spots.build(
+    name: "城崎プリンkiman生萬",
+    explanation: "nil",
+    visit_order: 2,
+    address: "兵庫県豊岡市城崎町湯島267",
+    staying_start: DateTime.new(2024,1,14,12,40),
+    staying_end:   DateTime.new(2024,1,14,14,00)
+  )
+  spot2.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot2-1.jpg")), filename: "couple-p2-spot2-1.jpg" }
+  ])
+
+  #スポット3(旅館)
+  spot3 = plan.spots.build(
+    name: "但馬屋",
+    explanation: "nil",
+    visit_order: 3,
+    address: "兵庫県豊岡市城崎町湯島453",
+    staying_start: DateTime.new(2024,1,14,15,00),
+    staying_end:   DateTime.new(2024,1,15,10,00)
+  )
+  spot3.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot3-1.jpg")), filename: "couple-p2-spot3-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot3-2.jpg")), filename: "couple-p2-spot3-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot3-3.jpg")), filename: "couple-p2-spot3-3.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot3-4.jpg")), filename: "couple-p2-spot3-4.jpg" }
+  ])
+
+  #スポット4(湯めぐり)
+  spot4 = plan.spots.build(
+    name: "湯めぐり",
+    explanation: "nil",
+    visit_order: 4,
+    address: "兵庫県豊岡市城崎町湯島448",
+    staying_start: DateTime.new(2024,1,14,15,00),
+    staying_end:   DateTime.new(2024,1,15,11,00)
+  )
+  spot4.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot4-1.jpg")), filename: "couple-p2-spot4-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot4-2.jpg")), filename: "couple-p2-spot4-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot4-3.jpg")), filename: "couple-p2-spot4-3.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot4-4.jpg")), filename: "couple-p2-spot4-4.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot4-5.jpg")), filename: "couple-p2-spot4-5.jpg" }
+
+  ])
+
+  #スポット5(城崎マリンワールド)
+  spot5 = plan.spots.build(
+    name: "城崎マリンワールド",
+    explanation: "アジ釣りをしてそのまま天ぷらにしていただきました！美味しかった〜！",
+    visit_order: 10,
+    address: "兵庫県豊岡市瀬戸1090",
+    staying_start: DateTime.new(2024,1,15,11,10),
+    staying_end:   DateTime.new(2024,1,15,15,45)
+  )
+  spot5.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot5-1.jpg")), filename: "couple-p2-spot5-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot5-2.jpg")), filename: "couple-p2-spot5-2.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot5-3.jpg")), filename: "couple-p2-spot5-3.jpg" }
+  ])
+ 
+  # spot5にルートをネスト（城崎温泉→城崎マリンワールド）
+  spot5.routes.build(
+    departure: "城崎温泉駅",
+    arrival: "城崎マリンワールド",
+    travel_time: 10,
+    transportation: 2, #バス
+    description: "nil",
+    visit_order: 1
+  )
+end
+
+#ほのぼのさんプラン1
+Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
+  plan.start_date = Date.new(2024,1,24)
+  plan.end_date = Date.new(2024,1,25)
+  plan.body = "かなり寒い日だったので雪景色を見ることができました！"
+  plan.user = honobono
+
+  #スポット1(ランチ)
+  spot1 = plan.spots.build(
+    name: "城崎町家地ビールレストランGUBIGABU",
+    explanation: "街並みを見ながら楽しめる席もあり、素敵なお店でした♫",
+    visit_order: 1,
+    address: "兵庫県豊岡市城崎湯島646",
+    staying_start: DateTime.new(2024,1,24,11,00),
+    staying_end:   DateTime.new(2024,1,24,12,00)
+  )
+  spot1.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot1-1.jpg")), filename: "honobono-p1-spot1-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot1-2.jpg")), filename: "honobono-p1-spot1-2.jpg" }
+  ])
+
+  #スポット2(ロープウェイ)
+  spot2 = plan.spots.build(
+    name: "城崎温泉ロープウェイ",
+    explanation: "温泉街を上から見渡す景色がよかったです！",
+    visit_order: 2,
+    address: "兵庫県豊岡市城崎湯島806-1",
+    staying_start: DateTime.new(2024,1,24,12,15),
+    staying_end:   DateTime.new(2024,1,24,14,00)
+  )
+
+  spot2.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot2-1.jpg")), filename: "honobono-p1-spot2-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot2-2.jpg")), filename: "honobono-p1-spot2-2.jpg" }
+  ])
+ 
+  #スポット3(カフェ)
+  spot3 = plan.spots.build(
+    name: "城崎珈琲みはらしテラスカフェ",
+    explanation: "テラス席もあり、のんびり景色を楽しめました！",
+    visit_order: 3,
+    address: "兵庫県豊岡市城崎湯島806-1",
+    staying_start: DateTime.new(2024,1,24,13,00),
+    staying_end:   DateTime.new(2024,1,24,13,45)
+  )
+  
+  spot3.images.attach([
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot3-1.jpg")), filename: "honobono-p1-spot3-1.jpg" }
+  ])
+  
+  #スポット4(宿泊)
+  spot4 = plan.spots.build(
+    name: "但馬屋",
+    explanation: "雪が積もっていたので外湯巡って最後に旅館の貸切風呂で締めました！",
+    visit_order: 4,
+    address: "兵庫県豊岡市城崎町湯島453",
+    staying_start: DateTime.new(2024,1,24,15,00),
+    staying_end:   DateTime.new(2024,1,25,10,00)
+  )
+
+  #スポット5(湯めぐり)
+  spot5 = plan.spots.build(
+    name: "湯めぐり",
+    explanation: "のんびり街並みを楽しみながら湯めぐり！チェックイン時旅館でいただいた外湯めぐりパスで次の日もゆっくり温泉が楽しめた！雪景色なかなか見れないからいい思い出になりました！",
+    visit_order: 5,
+    address: "兵庫県豊岡市城崎町湯島448",
+    staying_start: DateTime.new(2024,1,24,15,00),
+    staying_end:   DateTime.new(2024,1,25,14,00)
+  )
+  
+  spot5.images.attach([
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-1.jpg")), filename: "honobono-p1-spot5-1.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-2.jpg")), filename: "honobono-p1-spot5-2.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-3.jpg")), filename: "honobono-p1-spot5-3.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-4.jpg")), filename: "honobono-p1-spot5-4.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-5.jpg")), filename: "honobono-p1-spot5-5.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-6.jpg")), filename: "honobono-p1-spot5-6.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-7.jpg")), filename: "honobono-p1-spot5-7.jpg" },
+    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot5-8.jpg")), filename: "honobono-p1-spot5-8.jpg" }
+  ])
+  
+  #スポット6(カフェ)
+  spot6 = plan.spots.build(
+    name: "短編喫茶Un",
+    explanation: "ブックカフェ！生バターどら焼きが美味しかった！",
+    visit_order: 36
+    address: "兵庫県豊岡市城崎湯島127",
+    staying_start: DateTime.new(2024,01,25,14,10),
+    staying_end:   DateTime.new(2024,01,25,15,00)
+  )
+
+  spot6.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot6-1.jpg")), filename: "honobono-p1-spot6-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot6-2.jpg")), filename: "honobono-p1-spot6-2.jpg" }
+  ])
+
+  #スポット7(ご飯)
+  spot7 = plan.spots.build(
+    name: "おけしょう鮮魚の海中苑 駅前店",
+    explanation: "nil",
+    visit_order: 1,
+    address: "兵庫県豊岡市城崎町湯島88",
+    staying_start: DateTime.new(2024,1,25,16,00),
+    staying_end:   DateTime.new(2024,1,25,17,30)
+  )
+
+  spot7.images.attach([
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot7-1.jpg")), filename: "honobono-p1-spot7-1.jpg" },
+   { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot7-2.jpg")), filename: "honobono-p1-spot7-2.jpg" }
+  ])
+
+end
+
+
