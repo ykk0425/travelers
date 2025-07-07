@@ -46,7 +46,7 @@ end
     explanation: "絶景スポットへ！",
     visit_order: 1,
     address: "山口県下関市豊北町大字神田",
-    staying_start: DateTime.new(2022,6,16,7,00),
+    staying_start: DateTime.new(2022,6,16,7,0),
     staying_end:   DateTime.new(2022,6,16,7,30)
   )
 
@@ -75,7 +75,7 @@ end
     explanation: "123基の赤鳥居が海に向かって並ぶ絶景神社!!入れにくい賽銭箱に挑戦！一発で入りました♫",
     visit_order: 3,
     address: "山口県長門市油谷津黄498",
-    staying_start: DateTime.new(2022,6,16,9,00),
+    staying_start: DateTime.new(2022,6,16,9,0),
     staying_end:   DateTime.new(2022,6,16,10,30)
   )
 
@@ -93,7 +93,7 @@ end
     explanation: "nil",
     visit_order: 4,
     address: "山口県長門市三隅下2900-1",
-    staying_start: DateTime.new(2022,6,16,11,00),
+    staying_start: DateTime.new(2022,6,16,11,0),
     staying_end:   DateTime.new(2022,6,16,12,30)
   )
 
@@ -108,7 +108,7 @@ end
     visit_order: 5,
     address: "山口県美祢市秋芳町秋吉3506-2",
     staying_start: DateTime.new(2022,6,16,13,10),
-    staying_end:   DateTime.new(2022,6,16,14,00)
+    staying_end:   DateTime.new(2022,6,16,14,0)
   )
 
   spot5.images.attach([
@@ -196,8 +196,8 @@ end
 
 #旅好さんプラン２
 plan2 = Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
-  plan.start_date = Date.new(2023,02,22)
-  plan.end_date = Date.new(2023,02,22)
+  plan.start_date = Date.new(2023,2,22)
+  plan.end_date = Date.new(2023,2,22)
   plan.body = "京都の歴史的な建物が素晴らしかった！"
   plan.user = tabisuki
 end
@@ -208,8 +208,8 @@ end
     explanation: "nil",
     visit_order: 1,
     address: "京都府京都市北区金閣寺町1",
-    staying_start: DateTime.new(2023,02,22,10,15),
-    staying_end:   DateTime.new(2023,02,22,11,20)
+    staying_start: DateTime.new(2023,2,22,10,15),
+    staying_end:   DateTime.new(2023,2,22,11,20)
   )
 
   spot1.images.attach([
@@ -239,7 +239,7 @@ end
     visit_order: 3,
     address: "京都府京都市右京区御室大内33",
     staying_start: DateTime.new(2023,2,22,12,45),
-    staying_end:   DateTime.new(2023,2,22,14,00)
+    staying_end:   DateTime.new(2023,2,22,14,0)
   )
 
   spot3.images.attach([
@@ -304,8 +304,8 @@ end
 
 #旅好さんプラン３
 plan3 = Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
-  plan.start_date = Date.new(2023,11,03)
-  plan.end_date = Date.new(2023,11,03)
+  plan.start_date = Date.new(2023,11,3)
+  plan.end_date = Date.new(2023,11,3)
   plan.body = "伊勢神宮へ"
   plan.user = tabisuki
 end
@@ -356,7 +356,7 @@ end
     visit_order: 4,
     address: "三重県伊勢市宇治館町1",
     staying_start: DateTime.new(2023,11,3,14,45),
-    staying_end:   DateTime.new(2023,11,3,16,00)
+    staying_end:   DateTime.new(2023,11,3,16,0)
   )
   spot4.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/tabisuki-p3-spot4-1.jpg")), filename: "tabisuki-p3-spot4-1.jpg" },
@@ -430,8 +430,8 @@ end
     explanation: "金沢料理の治部煮うどん！！",
     visit_order: 2,
     address: "石川県金沢市兼六町1-15",
-    staying_start: DateTime.new(2024,11,1,12,00),
-    staying_end:   DateTime.new(2024,11,1,13,00)
+    staying_start: DateTime.new(2024,11,1,12,0),
+    staying_end:   DateTime.new(2024,11,1,13,0)
   )
   
   spot2.images.attach([
@@ -460,7 +460,7 @@ end
     visit_order: 4,
     address: "石川県金沢市兼六町1-3",
     staying_start: DateTime.new(2024,11,1,14,30),
-    staying_end:   DateTime.new(2024,11,1,15,00)
+    staying_end:   DateTime.new(2024,11,1,15,0)
   )
 
   spot4.images.attach([
@@ -521,8 +521,8 @@ end
     explanation: "nil",
     visit_order: 8,
     address: "石川県金沢市此花町10-17",
-    staying_start: DateTime.new(2024,11,1,19,00),
-    staying_end:   DateTime.new(2024,11,2,09,00)
+    staying_start: DateTime.new(2024,11,1,19,0),
+    staying_end:   DateTime.new(2024,11,2,9,0)
   )
 
   #スポット9（安江八幡宮）
@@ -531,8 +531,8 @@ end
     explanation: "だるまについつい惹かれました！",
     visit_order: 9,
     address: "石川県金沢市此花町11-27",
-    staying_start: DateTime.new(2024,11,2,09,00),
-    staying_end:   DateTime.new(2024,11,2,10,00)
+    staying_start: DateTime.new(2024,11,2,9,0),
+    staying_end:   DateTime.new(2024,11,2,10,0)
   )
 
   spot9.images.attach([
@@ -579,7 +579,7 @@ end
     visit_order: 12,
     address: "石川県金沢市東山1-30-8",
     staying_start: DateTime.new(2024,11,2,15,30),
-    staying_end:   DateTime.new(2024,11,2,16,00)
+    staying_end:   DateTime.new(2024,11,2,16,0)
   )
   
   spot12.images.attach([
@@ -839,7 +839,7 @@ end
     visit_order: 5,
     address: "三重県鳥羽市鳥羽3-3-6",
     staying_start: DateTime.new(2024,8,3,13,10),
-    staying_end:   DateTime.new(2024,8,3,16,00)
+    staying_end:   DateTime.new(2024,8,3,16,0)
   )
 
   spot5.images.attach([
@@ -937,7 +937,7 @@ end
     explanation: "自分で食べたいものを少しずつ食べることができて最高でした!!次は海鮮BBQもしてみたいな♫",
     visit_order: 1,
     address: "和歌山県西牟婁郡白浜町堅田2521",
-    staying_start: DateTime.new(2024,8,3,11,00),
+    staying_start: DateTime.new(2024,8,3,11,0),
     staying_end:   DateTime.new(2024,8,3,12,30)
   )
   spot1.images.attach([
@@ -952,7 +952,7 @@ end
     visit_order: 2,
     address: "和歌山県西牟婁郡白浜町864",
     staying_start: DateTime.new(2024,8,3,12,40),
-    staying_end:   DateTime.new(2024,8,3,16,00)
+    staying_end:   DateTime.new(2024,8,3,16,0)
   )
   spot2.images.attach([
     { io: File.open(Rails.root.join("db/fixtures/mama-p2-spot2-1.jpg")), filename: "mama-p2-spot2-1.jpg" },    
@@ -964,8 +964,8 @@ end
     explanation: "ゆったりとした時間の流れを感じられるお宿でした♫",
     visit_order: 3,
     address: "和歌山県西牟婁郡白浜町864",
-    staying_start: DateTime.new(2024,8,3,16,00),
-    staying_end:   DateTime.new(2024,8,4,10,00)
+    staying_start: DateTime.new(2024,8,3,16,0),
+    staying_end:   DateTime.new(2024,8,4,10,0)
   )
   spot3.images.attach([
     { io: File.open(Rails.root.join("db/fixtures/mama-p2-spot3-1.jpg")), filename: "mama-p2-spot3-1.jpg" },
@@ -981,8 +981,8 @@ end
     explanation: "nil",
     visit_order: 4,
     address: "和歌山県西牟婁郡白浜町堅田2399",
-    staying_start: DateTime.new(2024,8,4,10,00),
-    staying_end:   DateTime.new(2024,8,4,16,00)
+    staying_start: DateTime.new(2024,8,4,10,0),
+    staying_end:   DateTime.new(2024,8,4,16,0)
   )
 
   spot4.images.attach([
@@ -1128,8 +1128,8 @@ end
     explanation: "nil",
     visit_order: 5,
     address: "高知県高知市南はりまや町1-2",
-    staying_start: DateTime.new(2023,09,19,14,50),
-    staying_end:   DateTime.new(2023,09,19,16,50)
+    staying_start: DateTime.new(2023,9,19,14,50),
+    staying_end:   DateTime.new(2023,9,19,16,50)
   )
   spot5.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot5-1.jpg")), filename: "couple-p1-spot5-1.jpg" },
@@ -1227,7 +1227,7 @@ end
     visit_order: 2,
     address: "兵庫県豊岡市城崎町湯島267",
     staying_start: DateTime.new(2024,1,14,12,40),
-    staying_end:   DateTime.new(2024,1,14,14,00)
+    staying_end:   DateTime.new(2024,1,14,14,0)
   )
   spot2.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot2-1.jpg")), filename: "couple-p2-spot2-1.jpg" }
@@ -1239,8 +1239,8 @@ end
     explanation: "nil",
     visit_order: 3,
     address: "兵庫県豊岡市城崎町湯島453",
-    staying_start: DateTime.new(2024,1,14,15,00),
-    staying_end:   DateTime.new(2024,1,15,10,00)
+    staying_start: DateTime.new(2024,1,14,15,0),
+    staying_end:   DateTime.new(2024,1,15,10,0)
   )
   spot3.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot3-1.jpg")), filename: "couple-p2-spot3-1.jpg" },
@@ -1255,8 +1255,8 @@ end
     explanation: "nil",
     visit_order: 4,
     address: "兵庫県豊岡市城崎町湯島448",
-    staying_start: DateTime.new(2024,1,14,15,00),
-    staying_end:   DateTime.new(2024,1,15,11,00)
+    staying_start: DateTime.new(2024,1,14,15,0),
+    staying_end:   DateTime.new(2024,1,15,11,0)
   )
   spot4.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/couple-p2-spot4-1.jpg")), filename: "couple-p2-spot4-1.jpg" },
@@ -1307,8 +1307,8 @@ end
     explanation: "街並みを見ながら楽しめる席もあり、素敵なお店でした♫",
     visit_order: 1,
     address: "兵庫県豊岡市城崎湯島646",
-    staying_start: DateTime.new(2024,1,24,11,00),
-    staying_end:   DateTime.new(2024,1,24,12,00)
+    staying_start: DateTime.new(2024,1,24,11,0),
+    staying_end:   DateTime.new(2024,1,24,12,0)
   )
   spot1.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot1-1.jpg")), filename: "honobono-p1-spot1-1.jpg" },
@@ -1322,7 +1322,7 @@ end
     visit_order: 2,
     address: "兵庫県豊岡市城崎湯島806-1",
     staying_start: DateTime.new(2024,1,24,12,15),
-    staying_end:   DateTime.new(2024,1,24,14,00)
+    staying_end:   DateTime.new(2024,1,24,14,0)
   )
 
   spot2.images.attach([
@@ -1336,7 +1336,7 @@ end
     explanation: "テラス席もあり、のんびり景色を楽しめました！",
     visit_order: 3,
     address: "兵庫県豊岡市城崎湯島806-1",
-    staying_start: DateTime.new(2024,1,24,13,00),
+    staying_start: DateTime.new(2024,1,24,13,0),
     staying_end:   DateTime.new(2024,1,24,13,45)
   )
   
@@ -1350,8 +1350,8 @@ end
     explanation: "雪が積もっていたので外湯巡って最後に旅館の貸切風呂で締めました！",
     visit_order: 4,
     address: "兵庫県豊岡市城崎町湯島453",
-    staying_start: DateTime.new(2024,1,24,15,00),
-    staying_end:   DateTime.new(2024,1,25,10,00)
+    staying_start: DateTime.new(2024,1,24,15,0),
+    staying_end:   DateTime.new(2024,1,25,10,0)
   )
 
   #スポット5(湯めぐり)
@@ -1360,8 +1360,8 @@ end
     explanation: "のんびり街並みを楽しみながら湯めぐり！チェックイン時旅館でいただいた外湯めぐりパスで次の日もゆっくり温泉が楽しめた！雪景色なかなか見れないからいい思い出になりました！",
     visit_order: 5,
     address: "兵庫県豊岡市城崎町湯島448",
-    staying_start: DateTime.new(2024,1,24,15,00),
-    staying_end:   DateTime.new(2024,1,25,14,00)
+    staying_start: DateTime.new(2024,1,24,15,0),
+    staying_end:   DateTime.new(2024,1,25,14,0)
   )
   
   spot5.images.attach([
@@ -1379,10 +1379,10 @@ end
   spot6 = plan9.spots.create!(
     name: "短編喫茶Un",
     explanation: "ブックカフェ！生バターどら焼きが美味しかった！",
-    visit_order: 36
+    visit_order: 36,
     address: "兵庫県豊岡市城崎湯島127",
-    staying_start: DateTime.new(2024,01,25,14,10),
-    staying_end:   DateTime.new(2024,01,25,15,00)
+    staying_start: DateTime.new(2024,1,25,14,10),
+    staying_end:   DateTime.new(2024,1,25,15,0)
   )
 
   spot6.images.attach([
@@ -1396,7 +1396,7 @@ end
     explanation: "nil",
     visit_order: 1,
     address: "兵庫県豊岡市城崎町湯島88",
-    staying_start: DateTime.new(2024,1,25,16,00),
+    staying_start: DateTime.new(2024,1,25,16,0),
     staying_end:   DateTime.new(2024,1,25,17,30)
   )
 
