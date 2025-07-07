@@ -10,7 +10,7 @@
   <div class="row">
     <% @plans.each do |plan| %>
       <div class="col-md-4 mb-3">
-        <div class="text-center p-3 border rounded">
+        <div class="hover-card text-center p-3 border rounded">
           <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
             <div class="text-muted small"><i class="fa-regular fa-comment fa-flip-horizontal"></i>：<%= plan.comments.count %></div>
         </div>

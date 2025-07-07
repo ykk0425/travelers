@@ -178,5 +178,12 @@ ja:
     leave_blank_if_you_don't_want_to_change_it: パスワードを変更しない場合は、空白のままにしてください
     we_need_your_current_password_to_confirm_your_changes: 変更には現在のパスワードが必要です
     characters_minimum: 文字以上
-      
+  
+  plans:
+    create:
+      Plan_was_successfully_created: 旅行プランの投稿が完了しました。
+    update:
+      Plan_was_successfully_updated: プラン内容の編集が完了しました。
+    destroy:
+      Plan_was_successfully_destroyed: 旅行プランを削除しました。
   
