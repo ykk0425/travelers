@@ -57,7 +57,7 @@ end
   #スポット2（角島灯台）
   spot2 = plan1.spots.create!(
     name: "角島灯台",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 2,
     address: "山口県下関市豊北町大字角島1",
     staying_start: DateTime.new(2022,6,16,7,40),
@@ -90,7 +90,7 @@ end
   #スポット4（ランチ）
   spot4 = plan1.spots.create!(
     name: "お食事処 花",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 4,
     address: "山口県長門市三隅下2900-1",
     staying_start: DateTime.new(2022,6,16,11,0),
@@ -137,7 +137,7 @@ end
     arrival: "角島大橋",
     travel_time: 85,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 1
   )
 
@@ -147,7 +147,7 @@ end
     arrival: "角島灯台",
     travel_time: 6,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 2
   )
 
@@ -157,7 +157,7 @@ end
     arrival: "元乃隅稲荷神社",
     travel_time: 40,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 3
   )
 
@@ -167,7 +167,7 @@ end
     arrival: "お食事処 花",
     travel_time: 40,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 4
   )
 
@@ -177,7 +177,7 @@ end
     arrival: "秋吉大展望台",
     travel_time: 10,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 5
   )
 
@@ -187,7 +187,7 @@ end
     arrival: "秋芳洞",
     travel_time: 10,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 6
   )
 
@@ -205,7 +205,7 @@ end
   #スポット1（金閣寺）
   spot1 = plan2.spots.create!(
     name: "金閣寺",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 1,
     address: "京都府京都市北区金閣寺町1",
     staying_start: DateTime.new(2023,2,22,10,15),
@@ -278,7 +278,7 @@ end
     arrival: "BRCAFE",
     travel_time: 2,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 2
   )
   #spot3にルートをネスト（BRCAFE→仁和寺）
@@ -287,7 +287,7 @@ end
     arrival: "仁和寺",
     travel_time: 11,
     transportation: 2, #バス
-    description: "nil",
+    description: nil,
     visit_order: 3
   )
   #spot4にルートをネスト（仁和寺→晴明神社）
@@ -296,7 +296,7 @@ end
     arrival: "晴明神社",
     travel_time: 24,
     transportation: 2,#バス
-    description: "nil",
+    description: nil,
     visit_order:4
   )
 
@@ -518,7 +518,7 @@ end
   #スポット8（ホテル）
   spot8 = plan4.spots.create!(
     name: "ホテルマイステイズ金沢キャッスル",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 8,
     address: "石川県金沢市此花町10-17",
     staying_start: DateTime.new(2024,11,1,19,0),
@@ -575,7 +575,7 @@ end
   #スポット12（宇多須神社）
   spot12 = plan4.spots.create!(
     name: "宇多須神社",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 12,
     address: "石川県金沢市東山1-30-8",
     staying_start: DateTime.new(2024,11,2,15,30),
@@ -589,7 +589,7 @@ end
   #スポット13（小坂神社）
   spot13 = plan4.spots.create!(
     name: "小坂神社",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 13,
     address: "石川県金沢市山の上町42-1",
     staying_start: DateTime.new(2024,11,2,16,15),
@@ -614,7 +614,7 @@ end
     arrival: "石浦神社",
     travel_time: 5,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 2
   )
 
@@ -624,7 +624,7 @@ end
     arrival: "お食事処 堤亭",
     travel_time: 7,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 3
   )
 
@@ -643,7 +643,7 @@ end
     arrival: "金澤神社",
     travel_time: 1,
     transportation: 0, # 徒歩
-    description: "nil",
+    description: nil,
     visit_order: 5
   )
 
@@ -653,7 +653,7 @@ end
     arrival: "金沢城公園",
     travel_time: 15,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 5
   )
 
@@ -663,7 +663,7 @@ end
     arrival: "尾山神社",
     travel_time: 15,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 6
   )
 
@@ -673,7 +673,7 @@ end
     arrival: "廻る富山湾 すし玉",
     travel_time: 15,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order:8
   )
 
@@ -683,7 +683,7 @@ end
     arrival: "ホテルマイステイズ金沢キャッスル",
     travel_time: 10,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 10
   )
 
@@ -693,7 +693,7 @@ end
     arrival: "安江八幡宮",
     travel_time: 1,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 11
   )
 
@@ -703,7 +703,7 @@ end
     arrival: "金沢駅",
     travel_time: 8,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 11
   )
 
@@ -712,7 +712,7 @@ end
     arrival: "小松駅",
     travel_time: 34,
     transportation: 1, #電車
-    description: "nil",
+    description: nil,
     visit_order: 12
   )
 
@@ -721,7 +721,7 @@ end
     arrival: "兎橋神社",
     travel_time: 15,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 13
   )
 
@@ -731,7 +731,7 @@ end
     arrival: "小松駅",
     travel_time: 15,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 14
   )
 
@@ -740,7 +740,7 @@ end
     arrival: "金沢駅",
     travel_time: 34,
     transportation:1, #電車
-    description: "nil",
+    description: nil,
     visit_order: 15
   )
 
@@ -749,7 +749,7 @@ end
     arrival: "ひがし茶屋街",
     travel_time: 15,
     transportation: 2, #バス
-    description: "nil",
+    description: nil,
     visit_order: 16
   )
 
@@ -759,7 +759,7 @@ end
     arrival: "宇多須神社",
     travel_time: 6,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 17
   )
 
@@ -769,7 +769,7 @@ end
     arrival: "小坂神社",
     travel_time: 16,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 14
   )
 
@@ -978,7 +978,7 @@ end
   #スポット4(アドベンチャーワールド)
   spot4 = plan6.spots.create!(
     name: "アドベンチャーワールド",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 4,
     address: "和歌山県西牟婁郡白浜町堅田2399",
     staying_start: DateTime.new(2024,8,4,10,0),
@@ -996,7 +996,7 @@ end
   #スポット5(とれとれの湯)
   spot5 = plan6.spots.create!(
     name: "とれとれの湯",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 5,
     address: "和歌山県西牟婁郡白浜町堅田2508",
     staying_start: DateTime.new(2024,8,4,16,10),
@@ -1009,7 +1009,7 @@ end
     arrival: "とれとれ市場",
     travel_time: 5,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 1
   )
 
@@ -1019,7 +1019,7 @@ end
     arrival: "白良浜",
     travel_time: 7,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 2
   )
 
@@ -1029,7 +1029,7 @@ end
     arrival: "浜千鳥の湯 海舟",
     travel_time: 4,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 3
   )
 
@@ -1039,7 +1039,7 @@ end
     arrival: "アドベンチャーワールド",
     travel_time: 12,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 4
   )
 
@@ -1049,7 +1049,7 @@ end
     arrival: "とれとれの湯",
     travel_time: 6,
     transportation: 3, #車
-    description: "nil",
+    description: nil,
     visit_order: 5
   )
 
@@ -1065,7 +1065,7 @@ end
   #スポット1(高知城)
   spot1 = plan7.spots.create!(
     name: "高知城",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 1,
     address: "高知県高知市丸ノ内1-2-1",
     staying_start: DateTime.new(2023,9,19,10,30),
@@ -1079,7 +1079,7 @@ end
   #スポット2(ひろめ市場)
   spot2 = plan7.spots.create!(
     name: "ひろめ市場",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 2,
     address: "高知県高知市帯屋町2-3-1",
     staying_start: DateTime.new(2023,9,19,11,40),
@@ -1094,7 +1094,7 @@ end
   #スポット3(桂浜)
   spot3 = plan7.spots.create!(
     name: "桂浜",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 3,
     address: "高知県高知市南はりまや町1-2",
     staying_start: DateTime.new(2023,9,19,14,50),
@@ -1110,7 +1110,7 @@ end
   #スポット4(桂浜水族館)
   spot4 = plan7.spots.create!(
     name: "はりまや橋",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 4,
     address: "高知県高知市南はりまや町1-2",
     staying_start: DateTime.new(2023,9,19,14,50),
@@ -1125,7 +1125,7 @@ end
   #スポット5(はりまや橋)
   spot5 = plan7.spots.create!(
     name: "はりまや橋",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 5,
     address: "高知県高知市南はりまや町1-2",
     staying_start: DateTime.new(2023,9,19,14,50),
@@ -1143,7 +1143,7 @@ end
     arrival: "高知城",
     travel_time: 25,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 1
   )
 
@@ -1153,7 +1153,7 @@ end
     arrival: "ひろめ市場",
     travel_time: 10,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 2
   )
 
@@ -1163,7 +1163,7 @@ end
     arrival: "南はりまや橋",
     travel_time: 13,
     transportation: 2, #バス
-    description: "nil",
+    description: nil,
     visit_order: 3
   )
 
@@ -1173,7 +1173,7 @@ end
     arrival: "桂浜水族館",
     travel_time: 5,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 4
   )
 
@@ -1184,7 +1184,7 @@ end
     arrival: "北はりまや橋",
     travel_time: 30,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 5
   )
 
@@ -1193,7 +1193,7 @@ end
     arrival: "はりまや橋",
     travel_time: 30,
     transportation: 0, #徒歩
-    description: "nil",
+    description: nil,
     visit_order: 5
   )
 
@@ -1209,7 +1209,7 @@ end
   #スポット1(昼食)
   spot1 = plan8.spots.create!(
     name: "おけしょう鮮魚の海中苑 本店",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 1,
     address: "兵庫県豊岡市城崎町湯島132",
     staying_start: DateTime.new(2024,1,14,11,30),
@@ -1223,7 +1223,7 @@ end
   #スポット2(城崎プリンkiman生萬)
   spot2 = plan8.spots.create!(
     name: "城崎プリンkiman生萬",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 2,
     address: "兵庫県豊岡市城崎町湯島267",
     staying_start: DateTime.new(2024,1,14,12,40),
@@ -1236,7 +1236,7 @@ end
   #スポット3(旅館)
   spot3 = plan8.spots.create!(
     name: "但馬屋",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 3,
     address: "兵庫県豊岡市城崎町湯島453",
     staying_start: DateTime.new(2024,1,14,15,0),
@@ -1252,7 +1252,7 @@ end
   #スポット4(湯めぐり)
   spot4 = plan8.spots.create!(
     name: "湯めぐり",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 4,
     address: "兵庫県豊岡市城崎町湯島448",
     staying_start: DateTime.new(2024,1,14,15,0),
@@ -1288,7 +1288,7 @@ end
     arrival: "城崎マリンワールド",
     travel_time: 10,
     transportation: 2, #バス
-    description: "nil",
+    description: nil,
     visit_order: 1
   )
 
@@ -1393,7 +1393,7 @@ end
   #スポット7(ご飯)
   spot7 = plan9.spots.create!(
     name: "おけしょう鮮魚の海中苑 駅前店",
-    explanation: "nil",
+    explanation: nil,
     visit_order: 1,
     address: "兵庫県豊岡市城崎町湯島88",
     staying_start: DateTime.new(2024,1,25,16,0),
