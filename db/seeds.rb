@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #ユーザ情報
-taro = User.find_or_create_by!(email: "tabisuki@example.com") do |user|
+tabisuki = User.find_or_create_by!(email: "tabisuki@example.com") do |user|
   user.name = "旅好さん"
   user.password = "tabisuki"
   user.profile_image.attach(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename: "sample-user1.jpg")
