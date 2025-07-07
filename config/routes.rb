@@ -28,8 +28,7 @@ Rails.application.routes.draw do
     end
     resources :spots do
       resources :spot_images, only: [:destroy]
-              #プラン詳細にマップ表示する
-      resource :map, only: [:show]
+
     end
     get "search" => "searches#search"
   end
