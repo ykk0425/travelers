@@ -33,14 +33,15 @@ end
 
 
 #旅好さんプラン１
-Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
+plan1 = Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   plan.start_date = Date.new(2022,6,16)
   plan.end_date = Date.new(2022,6,16)
   plan.body ="大阪から新門司港までフェリーを利用して初めての日帰りで山口へ！！"
   plan.user = tabisuki
-  
+end
+
   #スポット1（角島大橋）
-  spot1 = plan.spots.build(
+  spot1 = plan1.spots.create!(
     name: "角島大橋",
     explanation: "絶景スポットへ！",
     visit_order: 1,
@@ -54,7 +55,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   ])
 
   #スポット2（角島灯台）
-  spot2 = plan.spots.build(
+  spot2 = plan1.spots.create!(
     name: "角島灯台",
     explanation: "nil",
     visit_order: 2,
@@ -69,7 +70,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   ])
 
   #スポット3（元乃隅稲荷神社）
-  spot3 = plan.spots.build(
+  spot3 = plan1.spots.create!(
     name: "元乃隅稲荷神社",
     explanation: "123基の赤鳥居が海に向かって並ぶ絶景神社!!入れにくい賽銭箱に挑戦！一発で入りました♫",
     visit_order: 3,
@@ -87,7 +88,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   ])
   
   #スポット4（ランチ）
-  spot4 = plan.spots.build(
+  spot4 = plan1.spots.create!(
     name: "お食事処 花",
     explanation: "nil",
     visit_order: 4,
@@ -101,7 +102,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   ])
   
   #スポット5（秋吉台）
-  spot5 = plan.spots.build(
+  spot5 = plan1.spots.create!(
     name: "秋吉台展望台",
     explanation: "特別天然記念物に指定されている日本最大級のカルスト台地",
     visit_order: 5,
@@ -115,7 +116,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   ])
 
   #スポット6（秋芳洞）
-  spot6 = plan.spots.build(
+  spot6 = plan1.spots.create!(
     name: "秋芳洞",
     explanation: "日本最大級の鍾乳洞",
     visit_order: 6,
@@ -131,7 +132,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   ])
 
   #spot1にルートをネスト（新門司港→角島大橋）
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "新門司港",
     arrival: "角島大橋",
     travel_time: 85,
@@ -141,7 +142,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   )
 
   #spot2にルートをネスト（角島大橋→角島灯台）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "角島大橋",
     arrival: "角島灯台",
     travel_time: 6,
@@ -151,7 +152,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   )
 
   #spot3にルートをネスト（角島灯台→元乃隅稲荷神社）
-  spot3.routes.build(
+  spot3.routes.create!(
     departure: "角島大橋",
     arrival: "元乃隅稲荷神社",
     travel_time: 40,
@@ -161,7 +162,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   )
 
   #spot4にルートをネスト（元乃隅稲荷神社→お食事処　花）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "元乃隅稲荷神社",
     arrival: "お食事処 花",
     travel_time: 40,
@@ -171,7 +172,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   )
 
   #spot5にルートをネスト（お食事処　花→秋吉台展望台）
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "お食事処 花",
     arrival: "秋吉大展望台",
     travel_time: 10,
@@ -181,7 +182,7 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
   )
 
   #spot6にルートをネスト（秋吉台展望台→秋芳洞）
-  spot6.routes.build(
+  spot6.routes.create!(
     departure: "秋吉台展望台",
     arrival: "秋芳洞",
     travel_time: 10,
@@ -190,18 +191,19 @@ Plan.find_or_create_by!(title: "山口弾丸旅行") do |plan|
     visit_order: 6
   )
 
-end
+
 
 
 #旅好さんプラン２
-Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
+plan2 = Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
   plan.start_date = Date.new(2023,02,22)
   plan.end_date = Date.new(2023,02,22)
   plan.body = "京都の歴史的な建物が素晴らしかった！"
   plan.user = tabisuki
-  
+end
+
   #スポット1（金閣寺）
-  spot1 = plan.spots.build(
+  spot1 = plan2.spots.create!(
     name: "金閣寺",
     explanation: "nil",
     visit_order: 1,
@@ -216,7 +218,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
   ])
 
   #スポット2（BRCAFE）
-  spot2 = plan.spots.build(
+  spot2 = plan2.spots.create!(
     name: "BRCAFE",
     explanation: "抹茶パフェ美味しかった！",
     visit_order: 2,
@@ -231,7 +233,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
   ])
 
   #スポット3（仁和寺）
-  spot3 = plan.spots.build(
+  spot3 = plan2.spots.create!(
     name: "仁和寺",
     explanation: "空気が澄んだように感じて気持ちよかったです！",
     visit_order: 3,
@@ -246,7 +248,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
   ])
 
   #スポット4（晴明神社）
-  spot4 = plan.spots.build(
+  spot4 = plan2.spots.create!(
     name: "晴明神社",
     explanation: "厄除け、魔除けのご利益をいただきに、伺いました！",
     visit_order: 4,
@@ -262,7 +264,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
   ])
 
   #spot1にルートをネスト（京都駅→金閣寺）
-  spot1.routes.buile(
+  spot1.routes.create!(
     departure: "京都駅",
     arrival: "金閣寺",
     travel_time: 45,
@@ -271,7 +273,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
     visit_order: 1
   )
   #spot2にルートをネスト（金閣寺→BRCAFE）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "金閣寺",
     arrival: "BRCAFE",
     travel_time: 2,
@@ -280,7 +282,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
     visit_order: 2
   )
   #spot3にルートをネスト（BRCAFE→仁和寺）
-  spot3.routes.build(
+  spot3.routes.create!(
     departure: "BRCAFE",
     arrival: "仁和寺",
     travel_time: 11,
@@ -289,7 +291,7 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
     visit_order: 3
   )
   #spot4にルートをネスト（仁和寺→晴明神社）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "仁和寺",
     arrival: "晴明神社",
     travel_time: 24,
@@ -297,18 +299,19 @@ Plan.find_or_create_by!(title: "京都神社めぐり") do |plan|
     description: "nil",
     visit_order:4
   )
-end
+
 
 
 #旅好さんプラン３
-Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
+plan3 = Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   plan.start_date = Date.new(2023,11,03)
   plan.end_date = Date.new(2023,11,03)
   plan.body = "伊勢神宮へ"
   plan.user = tabisuki
+end
 
   # スポット1（二見浦）
-  spot1 = plan.spots.build(
+  spot1 = plan3.spots.create!(
     name: "二見興玉神社(夫婦岩）",
     explanation: "海に浮かぶ2つの岩が有名なパワースポット。",
     visit_order: 1,
@@ -324,7 +327,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   ])
 
   #スポット2 (外宮)
-  spot2 = plan.spots.build(
+  spot2 = plan3.spots.create!(
     name: "伊勢神宮 外宮",
     explanation: "日本一有名な神社のひとつ。正式参拝ルートなぞって外宮から。",
     visit_order: 2,
@@ -334,7 +337,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   )
  
   #スポット3 (おかげ横丁)
-  spot3 = plan.spots.build(
+  spot3 = plan3.spots.create!(
     name: "おかげ横丁",
     explanation: "江戸時代の町並みを再現した観光スポット！ここで昼食とお土産探し！",
     visit_order: 3,
@@ -347,7 +350,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   ])
   
   #スポット4 (内宮)
-  spot4 = plan.spots.build(
+  spot4 = plan3.spots.create!(
     name: "伊勢神宮 内宮",
     explanation: "日本一有名な神社のひとつ。",
     visit_order: 4,
@@ -360,7 +363,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   ])
 
   # spot1 にルートをネスト（鳥羽駅→二見浦 ）
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "鳥羽駅",
     arrival: "夫婦岩東口(三重交通バス)",
     travel_time: 12,
@@ -370,7 +373,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
   )
 
   # spot2 にルートをネスト（二見浦 → 伊勢神宮外宮）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "夫婦岩東口",
     arrival: "外宮前",
     travel_time: 45,
@@ -379,7 +382,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     visit_order: 2
   )
   # spot3 にルートをネスト（伊勢神宮外宮→おかげ横丁）
-  spot3.routes.build(
+  spot3.routes.create!(
     departure: "外宮前",
     arrival:"神宮会館前" ,
     travel_time: 20,
@@ -388,7 +391,7 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     visit_order: 3
   )
   # spot4 にルートをネスト（おかげ横丁 → 伊勢神宮内宮）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "おかげ横丁",
     arrival: "内宮",
     travel_time: 15,
@@ -396,17 +399,18 @@ Plan.find_or_create_by!(title: "伊勢神宮お参り記録") do |plan|
     description: "おかげ横丁ぶらぶらして内宮へ",
     visit_order: 4
   )
-end
+
 
 #旅好さんプラン４
-Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
+plan4 = Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   plan.start_date = Date.new(2024,11,1)
   plan.end_date = Date.new(2024,11,2)
   plan.body = "京都の歴史的な建物が素晴らしかった！"
   plan.user = tabisuki
-  
+end
+
   #スポット1（石浦神社）
-  spot1 = plan.spots.build(
+  spot1 = plan4.spots.create!(
     name: "石浦神社",
     explanation: "金沢で最も古い神社として知られている石浦神社へ！",
     visit_order: 1,
@@ -421,7 +425,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット2（ランチ）
-  spot2 = plan.spots.build(
+  spot2 = plan4.spots.create!(
     name: "お食事処堤亭",
     explanation: "金沢料理の治部煮うどん！！",
     visit_order: 2,
@@ -435,7 +439,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット3（兼六園）
-  spot3 = plan.spots.build(
+  spot3 = plan4.spots.create!(
     name: "兼六園",
     explanation: "日本三名園の兼六園へ！",
     visit_order: 3,
@@ -450,7 +454,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット4（金澤神社）
-  spot4 = plan.spots.build(
+  spot4 = plan4.spots.create!(
     name: "金澤神社",
     explanation: "兼六園に隣接する金澤神社",
     visit_order: 4,
@@ -465,7 +469,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット5（金沢城公園）
-  spot5 = plan.spots.build(
+  spot5 = plan4.spots.create!(
     name: "金沢城公園",
     explanation: "兼六園に隣接する金澤神社",
     visit_order: 5,
@@ -481,7 +485,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット6（尾山神社）
-  spot6 = plan.spots.build(
+  spot6 = plan4.spots.create!(
     name: "尾山神社",
     explanation: "静かで落ち着いた雰囲気でステンドグラスが綺麗でした！",
     visit_order: 6,
@@ -497,7 +501,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット7（夜ごはん）
-  spot7 = plan.spots.build(
+  spot7 = plan4.spots.create!(
     name: "廻る富山湾すし玉",
     explanation: "金沢駅にあるお寿司屋さんで夜ご飯を食べました！",
     visit_order: 7,
@@ -512,7 +516,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット8（ホテル）
-  spot8 = plan.spots.build(
+  spot8 = plan4.spots.create!(
     name: "ホテルマイステイズ金沢キャッスル",
     explanation: "nil",
     visit_order: 8,
@@ -522,7 +526,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #スポット9（安江八幡宮）
-  spot9 = plan.spots.build(
+  spot9 = plan4.spots.create!(
     name: "安江八幡宮",
     explanation: "だるまについつい惹かれました！",
     visit_order: 9,
@@ -538,7 +542,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット10（兎橋神社）
-  spot10 = plan.spots.build(
+  spot10 = plan4.spots.create!(
     name: "兎橋神社",
     explanation: "おすわさん！うさぎの御朱印がとっても可愛い！",
     visit_order: 10,
@@ -553,7 +557,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット11（ひがし茶屋街）
-  spot11 = plan.spots.build(
+  spot11 = plan4.spots.create!(
     name: "ひがし茶屋街",
     explanation: "ひがし茶屋街を散策し、素心さんで加賀棒茶パフェいただきました！",
     visit_order: 11,
@@ -569,7 +573,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット12（宇多須神社）
-  spot12 = plan.spots.build(
+  spot12 = plan4.spots.create!(
     name: "宇多須神社",
     explanation: "nil",
     visit_order: 12,
@@ -583,7 +587,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #スポット13（小坂神社）
-  spot13 = plan.spots.build(
+  spot13 = plan4.spots.create!(
     name: "小坂神社",
     explanation: "nil",
     visit_order: 13,
@@ -597,7 +601,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   ])
 
   #spot1にルートをネスト（金沢駅→石浦神社）
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "JR金沢駅バスターミナル",
     arrival: "香林坊（アトリオ前）",
     travel_time: 10,
@@ -605,7 +609,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
     description: "東口と西口それぞれから香林坊（アトリオ前）へいくバスあり!!",
     visit_order:1
   )
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "香林坊（アトリオ前）",
     arrival: "石浦神社",
     travel_time: 5,
@@ -615,7 +619,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot2にルートをネスト（石浦神社→お食事処　堤亭）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "石浦神社",
     arrival: "お食事処 堤亭",
     travel_time: 7,
@@ -625,7 +629,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot3にルートをネスト（お食事処　堤亭→兼六園）
-  spot3.routes.build(
+  spot3.routes.create!(
     departure: "お食事処 堤亭",
     arrival: "兼六園",
     travel_time: 1,
@@ -634,7 +638,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot4にルートをネスト（兼六園→金澤神社）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "兼六園",
     arrival: "金澤神社",
     travel_time: 1,
@@ -644,7 +648,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot5にルートをネスト（金澤神社→金沢城公園）
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "金澤神社",
     arrival: "金沢城公園",
     travel_time: 15,
@@ -654,7 +658,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot6にルートをネスト（金沢城公園→尾山神社）
-  spot6.routes.build(
+  spot6.routes.create!(
     departure: "金沢城公園",
     arrival: "尾山神社",
     travel_time: 15,
@@ -664,7 +668,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot7にルートをネスト（尾山神社→夕食）
-  spot7.routes.build(
+  spot7.routes.create!(
     departure: "尾山神社",
     arrival: "廻る富山湾 すし玉",
     travel_time: 15,
@@ -674,7 +678,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot8にルートをネスト（夕食→ホテル）
-  spot8.routes.build(
+  spot8.routes.create!(
     departure: "廻る富山湾 すし玉",
     arrival: "ホテルマイステイズ金沢キャッスル",
     travel_time: 10,
@@ -684,7 +688,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot9にルートをネスト（ホテル→安江八幡宮）
-  spot9.routes.build(
+  spot9.routes.create!(
     departure: "ホテルマイステイズ金沢キャッスル",
     arrival: "安江八幡宮",
     travel_time: 1,
@@ -694,7 +698,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot10にルートをネスト（安江八幡宮→兎橋神社 ）
-  spot10.routes.build(
+  spot10.routes.create!(
     departure: "安江八幡宮",
     arrival: "金沢駅",
     travel_time: 8,
@@ -703,7 +707,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
     visit_order: 11
   )
 
-  spot10.routes.build(
+  spot10.routes.create!(
     departure: "金沢駅",
     arrival: "小松駅",
     travel_time: 34,
@@ -712,7 +716,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
     visit_order: 12
   )
 
-  spot10.routes.build(
+  spot10.routes.create!(
     departure: "小松駅",
     arrival: "兎橋神社",
     travel_time: 15,
@@ -722,7 +726,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot11 にルートをネスト（兎橋神社→ひがし茶屋街 ）
-  spot11.routes.build(
+  spot11.routes.create!(
     departure: "兎橋神社",
     arrival: "小松駅",
     travel_time: 15,
@@ -731,7 +735,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
     visit_order: 14
   )
 
-  spot11.routes.build(
+  spot11.routes.create!(
     departure: "小松駅",
     arrival: "金沢駅",
     travel_time: 34,
@@ -740,7 +744,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
     visit_order: 15
   )
 
-  spot11.routes.build(
+  spot11.routes.create!(
     departure: "金沢駅",
     arrival: "ひがし茶屋街",
     travel_time: 15,
@@ -750,7 +754,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot12 にルートをネスト（ひがし茶屋街→宇多須神社）
-  spot12.routes.build(
+  spot12.routes.create!(
     departure: "ひがし茶屋街",
     arrival: "宇多須神社",
     travel_time: 6,
@@ -760,7 +764,7 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
   )
 
   #spot13 にルートをネスト（宇多須神社→小坂神社）
-  spot13.routes.build(
+  spot13.routes.create!(
     departure: "宇多須神社",
     arrival: "小坂神社",
     travel_time: 16,
@@ -769,17 +773,16 @@ Plan.find_or_create_by!(title: "初金沢旅行！") do |plan|
     visit_order: 14
   )
 
-end
-
 #旅好きママさんプラン1
-Plan.find_or_create_by!(title: "三重旅行") do |plan|
+plan5 = Plan.find_or_create_by!(title: "三重旅行") do |plan|
   plan.start_date = Date.new(2024,8,1)
   plan.end_date = Date.new(2024,8,3)
   plan.body = "子どもと一緒に夏休みの旅行に行きました♫"
   plan.user = mama
+end
 
   #スポット1（伊勢シーパラダイス）
-  spot1 = plan.spots.build(
+  spot1 = plan5.spots.create!(
     name: "伊勢シーパラダイス",
     explanation: "距離感がすごく近い水族館！ふれあいの多さに子どもも大喜び！じっくり回って大満足です！",
     visit_order: 1,
@@ -794,7 +797,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
    ])
 
   # スポット2(宿泊)
-  spot2 = plan.spots.build(
+  spot2 = plan5.spots.create!(
     name: "ホテル志摩スペイン村",
     explanation: "志摩スペイン村”公式ホテルに宿泊！",
     visit_order: 2,
@@ -804,7 +807,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
   )
 
   # スポット3（志摩スペイン村）
-  spot3 = plan.spots.build(
+  spot3 = plan5.spots.create!(
     name: "志摩スペイン村",
     explanation: "一日中志摩スペイン村を堪能！アトラクションもたくさん乗って楽しかったみたい！",
     visit_order: 3,
@@ -817,11 +820,10 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot3-1.jpg")), filename: "mama-p1-spot3-1.jpg" },
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot3-2.jpg")), filename: "mama-p1-spot3-2.jpg" },
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot3-3.jpg")), filename: "mama-p1-spot3-3.jpg" }    
-   ])
+  ])
 
-
-  # スポット4（鳥羽湾クルーズ）
-  spot4 = plan.spots.build(
+  #スポット4（鳥羽湾クルーズ）
+  spot4 = plan5.spots.create!(
     name: "鳥羽湾めぐりとイルカ島",
     explanation: "普段のることのない大きい船に乗ってイルカのいる島へ！",
     visit_order: 4,
@@ -831,7 +833,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
   )
 
   # スポット5（鳥羽水族館）
-  spot5 = plan.spots.build(
+  spot5 = plan5.spots.create!(
     name: "鳥羽水族館",
     explanation: "ジュゴンに会える水族館！",
     visit_order: 5,
@@ -844,10 +846,10 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-1.jpg")), filename: "mama-p1-spot5-1.jpg" },
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-2.jpg")), filename: "mama-p1-spot5-2.jpg" },
     { io: File.open(Rails.root.join("db/fixtures/mama-p1-spot5-3.jpg")), filename: "mama-p1-spot5-3.jpg" }    
-   ])
+  ])
 
   # spot1 にルートをネスト（鳥羽駅 → 伊勢シーパラダイス）
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "鳥羽駅",
     arrival: "夫婦岩東口",
     travel_time: 15,
@@ -857,7 +859,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
   )
 
   # spot2 にルートをネスト（伊勢シーパラダイス→ホテル）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "夫婦岩東口",
     arrival: "鳥羽駅",
     travel_time: 15,
@@ -866,7 +868,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     visit_order: 2
   )
 
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "鳥羽駅",
     arrival: "鵜方駅",
     travel_time: 25,
@@ -875,7 +877,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     visit_order: 3
   )
 
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "鵜方駅",
     arrival: "ホテル志摩スペイン村",
     travel_time: 10,
@@ -885,7 +887,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
   )
 
   # spot4 にルートをネスト（ホテル志摩スペイン村→鳥羽湾クルーズ）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "ホテル志摩スペイン村",
     arrival: "鵜方駅",
     travel_time: 10,
@@ -893,7 +895,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     description: nil,
     visit_order: 5
   )
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "鵜方駅",
     arrival: "鳥羽駅",
     travel_time: 15,
@@ -901,7 +903,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     description: nil,
     visit_order: 6
   )
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "鳥羽駅",
     arrival: "鳥羽マリンターミナル",
     travel_time: 10,
@@ -911,7 +913,7 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
   )
 
   # spot5にルートをネスト（真珠島・水族館のりば→鳥羽水族館）
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "真珠島・水族館のりば",
     arrival: "鳥羽水族館",
     travel_time: 1,
@@ -919,17 +921,18 @@ Plan.find_or_create_by!(title: "三重旅行") do |plan|
     description: nil,
     visit_order: 8
   )
-end
+
 
 #旅好きママさんプラン2
-Plan.find_or_create_by!(title: "白浜旅行") do |plan|
+plan6 = Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   plan.start_date = Date.new(2024,8,3)
   plan.end_date = Date.new(2024,8,4)
   plan.body = "今年の夏休み旅行は白浜に行きました♫ 白浜駅にてレンタカーをしてスタート！"
   plan.user = mama
+end
 
   #スポット１（とれとれ市場）
-  spot1 = plan.spots.build(
+  spot1 = plan6.spots.create!(
     name: "とれとれ市場",
     explanation: "自分で食べたいものを少しずつ食べることができて最高でした!!次は海鮮BBQもしてみたいな♫",
     visit_order: 1,
@@ -943,7 +946,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   ])
 
   #スポット2(白良浜)
-  spot2 = plan.spots.build(
+  spot2 = plan6.spots.create!(
     name: "白良浜",
     explanation: "子供達の希望の海水浴！海も綺麗で満喫しました！",
     visit_order: 2,
@@ -956,7 +959,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   ])
 
   #スポット3(宿泊)
-  spot3 = plan.spots.build(
+  spot3 = plan6.spots.create!(
     name: "浜千鳥の湯海舟",
     explanation: "ゆったりとした時間の流れを感じられるお宿でした♫",
     visit_order: 3,
@@ -973,7 +976,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   ])
 
   #スポット4(アドベンチャーワールド)
-  spot4 = plan.spots.build(
+  spot4 = plan6.spots.create!(
     name: "アドベンチャーワールド",
     explanation: "nil",
     visit_order: 4,
@@ -991,7 +994,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   ])
 
   #スポット5(とれとれの湯)
-  spot5 = plan.spots.build(
+  spot5 = plan6.spots.create!(
     name: "とれとれの湯",
     explanation: "nil",
     visit_order: 5,
@@ -1001,7 +1004,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   )
 
   #spot1 にルートをネスト（白浜駅 →とれとれ市場）
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "白浜駅",
     arrival: "とれとれ市場",
     travel_time: 5,
@@ -1011,7 +1014,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   )
 
   #spot2 にルートをネスト（とれとれ市場→白良浜 ）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "とれとれ市場",
     arrival: "白良浜",
     travel_time: 7,
@@ -1021,7 +1024,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   )
 
   # spot3 にルートをネスト（白良浜→旅館 ）
-  spot3.routes.build(
+  spot3.routes.create!(
     departure: "白良浜",
     arrival: "浜千鳥の湯 海舟",
     travel_time: 4,
@@ -1031,7 +1034,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   )
 
   # spot4 にルートをネスト（旅館→アドベンチャーワールド ）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "浜千鳥の湯 海舟",
     arrival: "アドベンチャーワールド",
     travel_time: 12,
@@ -1041,7 +1044,7 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
   )
 
   # spot5 にルートをネスト（アドベンチャーワールド→とれとれの湯 ）
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "アドベンチャーワールド",
     arrival: "とれとれの湯",
     travel_time: 6,
@@ -1049,17 +1052,18 @@ Plan.find_or_create_by!(title: "白浜旅行") do |plan|
     description: "nil",
     visit_order: 5
   )
-end
+
 
 #恋するカップルプラン1
-Plan.find_or_create_by!(title: "日帰り高知") do |plan|
+plan7 = Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   plan.start_date = Date.new(2023, 9,19)
   plan.end_date = Date.new(2023,9,19)
   plan.body = "カツオを食べに高知へ♫"
   plan.user = couple
+end
 
   #スポット1(高知城)
-  spot1 = plan.spots.build(
+  spot1 = plan7.spots.create!(
     name: "高知城",
     explanation: "nil",
     visit_order: 1,
@@ -1073,7 +1077,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   ])
 
   #スポット2(ひろめ市場)
-  spot2 = plan.spots.build(
+  spot2 = plan7.spots.create!(
     name: "ひろめ市場",
     explanation: "nil",
     visit_order: 2,
@@ -1088,7 +1092,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   ])
 
   #スポット3(桂浜)
-  spot3 = plan.spots.build(
+  spot3 = plan7.spots.create!(
     name: "桂浜",
     explanation: "nil",
     visit_order: 3,
@@ -1104,7 +1108,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
 
 
   #スポット4(桂浜水族館)
-  spot4 = plan.spots.build(
+  spot4 = plan7.spots.create!(
     name: "はりまや橋",
     explanation: "nil",
     visit_order: 4,
@@ -1119,7 +1123,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
 
 
   #スポット5(はりまや橋)
-  spot5 = plan.spots.build(
+  spot5 = plan7.spots.create!(
     name: "はりまや橋",
     explanation: "nil",
     visit_order: 5,
@@ -1134,7 +1138,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   ])
 
   # spot1 にルートをネスト（高知駅→高知城）
-  spot1.routes.build(
+  spot1.routes.create!(
     departure: "高知駅",
     arrival: "高知城",
     travel_time: 25,
@@ -1144,7 +1148,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   )
 
   # spot2 にルートをネスト（高知城→ひろめ市場）
-  spot2.routes.build(
+  spot2.routes.create!(
     departure: "高知城",
     arrival: "ひろめ市場",
     travel_time: 10,
@@ -1154,7 +1158,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   )
 
   # spot3 にルートをネスト（ひろめ市場→桂浜）
-  spot3.routes.build(
+  spot3.routes.create!(
     departure: "ひろめ市場",
     arrival: "南はりまや橋",
     travel_time: 13,
@@ -1164,7 +1168,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
   )
 
   # spot4にルートをネスト（桂浜→桂浜水族館）
-  spot4.routes.build(
+  spot4.routes.create!(
     departure: "桂浜",
     arrival: "桂浜水族館",
     travel_time: 5,
@@ -1175,7 +1179,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
 
 
   # spot5にルートをネスト（桂浜水族館→はりまや橋）
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "桂浜",
     arrival: "北はりまや橋",
     travel_time: 30,
@@ -1184,7 +1188,7 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
     visit_order: 5
   )
 
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "北はりまや橋",
     arrival: "はりまや橋",
     travel_time: 30,
@@ -1192,17 +1196,18 @@ Plan.find_or_create_by!(title: "日帰り高知") do |plan|
     description: "nil",
     visit_order: 5
   )
-end
+
 
 #恋するカップルプラン2
-Plan.find_or_create_by!(title: "城崎温泉") do |plan|
+plan8 = Plan.find_or_create_by!(title: "城崎温泉") do |plan|
   plan.start_date = Date.new(2024,1,14)
   plan.end_date = Date.new(2024,1,15)
   plan.body = "温泉＆カニ最高でした！！駅についたらすぐ温泉街でお土産やさんもカフェもありよかったです！"
   plan.user = couple
+end
 
   #スポット1(昼食)
-    spot1 = plan.spots.build(
+  spot1 = plan8.spots.create!(
     name: "おけしょう鮮魚の海中苑 本店",
     explanation: "nil",
     visit_order: 1,
@@ -1216,7 +1221,7 @@ Plan.find_or_create_by!(title: "城崎温泉") do |plan|
   ])
 
   #スポット2(城崎プリンkiman生萬)
-  spot2 = plan.spots.build(
+  spot2 = plan8.spots.create!(
     name: "城崎プリンkiman生萬",
     explanation: "nil",
     visit_order: 2,
@@ -1229,7 +1234,7 @@ Plan.find_or_create_by!(title: "城崎温泉") do |plan|
   ])
 
   #スポット3(旅館)
-  spot3 = plan.spots.build(
+  spot3 = plan8.spots.create!(
     name: "但馬屋",
     explanation: "nil",
     visit_order: 3,
@@ -1245,7 +1250,7 @@ Plan.find_or_create_by!(title: "城崎温泉") do |plan|
   ])
 
   #スポット4(湯めぐり)
-  spot4 = plan.spots.build(
+  spot4 = plan8.spots.create!(
     name: "湯めぐり",
     explanation: "nil",
     visit_order: 4,
@@ -1263,7 +1268,7 @@ Plan.find_or_create_by!(title: "城崎温泉") do |plan|
   ])
 
   #スポット5(城崎マリンワールド)
-  spot5 = plan.spots.build(
+  spot5 = plan8.spots.create!(
     name: "城崎マリンワールド",
     explanation: "アジ釣りをしてそのまま天ぷらにしていただきました！美味しかった〜！",
     visit_order: 10,
@@ -1278,7 +1283,7 @@ Plan.find_or_create_by!(title: "城崎温泉") do |plan|
   ])
  
   # spot5にルートをネスト（城崎温泉→城崎マリンワールド）
-  spot5.routes.build(
+  spot5.routes.create!(
     departure: "城崎温泉駅",
     arrival: "城崎マリンワールド",
     travel_time: 10,
@@ -1286,17 +1291,18 @@ Plan.find_or_create_by!(title: "城崎温泉") do |plan|
     description: "nil",
     visit_order: 1
   )
-end
+
 
 #ほのぼのさんプラン1
-Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
+plan9 = Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   plan.start_date = Date.new(2024,1,24)
   plan.end_date = Date.new(2024,1,25)
   plan.body = "かなり寒い日だったので雪景色を見ることができました！"
   plan.user = honobono
+end
 
   #スポット1(ランチ)
-  spot1 = plan.spots.build(
+  spot1 = plan9.spots.create!(
     name: "城崎町家地ビールレストランGUBIGABU",
     explanation: "街並みを見ながら楽しめる席もあり、素敵なお店でした♫",
     visit_order: 1,
@@ -1310,7 +1316,7 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   ])
 
   #スポット2(ロープウェイ)
-  spot2 = plan.spots.build(
+  spot2 = plan9.spots.create!(
     name: "城崎温泉ロープウェイ",
     explanation: "温泉街を上から見渡す景色がよかったです！",
     visit_order: 2,
@@ -1325,7 +1331,7 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   ])
  
   #スポット3(カフェ)
-  spot3 = plan.spots.build(
+  spot3 = plan9.spots.create!(
     name: "城崎珈琲みはらしテラスカフェ",
     explanation: "テラス席もあり、のんびり景色を楽しめました！",
     visit_order: 3,
@@ -1339,7 +1345,7 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   ])
   
   #スポット4(宿泊)
-  spot4 = plan.spots.build(
+  spot4 = plan9.spots.create!(
     name: "但馬屋",
     explanation: "雪が積もっていたので外湯巡って最後に旅館の貸切風呂で締めました！",
     visit_order: 4,
@@ -1349,7 +1355,7 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   )
 
   #スポット5(湯めぐり)
-  spot5 = plan.spots.build(
+  spot5 = plan9.spots.create!(
     name: "湯めぐり",
     explanation: "のんびり街並みを楽しみながら湯めぐり！チェックイン時旅館でいただいた外湯めぐりパスで次の日もゆっくり温泉が楽しめた！雪景色なかなか見れないからいい思い出になりました！",
     visit_order: 5,
@@ -1370,7 +1376,7 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   ])
   
   #スポット6(カフェ)
-  spot6 = plan.spots.build(
+  spot6 = plan9.spots.create!(
     name: "短編喫茶Un",
     explanation: "ブックカフェ！生バターどら焼きが美味しかった！",
     visit_order: 36
@@ -1385,7 +1391,7 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
   ])
 
   #スポット7(ご飯)
-  spot7 = plan.spots.build(
+  spot7 = plan9.spots.create!(
     name: "おけしょう鮮魚の海中苑 駅前店",
     explanation: "nil",
     visit_order: 1,
@@ -1399,6 +1405,5 @@ Plan.find_or_create_by!(title: "雪景色城崎") do |plan|
    { io: File.open(Rails.root.join("db/fixtures/honobono-p1-spot7-2.jpg")), filename: "honobono-p1-spot7-2.jpg" }
   ])
 
-end
 
 
