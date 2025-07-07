@@ -1103,7 +1103,7 @@ end
   spot3.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot3-1.jpg")), filename: "couple-p1-spot3-1.jpg" },
    { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot3-2.jpg")), filename: "couple-p1-spot3-2.jpg" },
-   { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot3-2.jpg")), filename: "couple-p1-spot3-2.jpg" }
+   { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot3-3.jpg")), filename: "couple-p1-spot3-3.jpg" }
   ])
 
 
@@ -1134,7 +1134,7 @@ end
   spot5.images.attach([
    { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot5-1.jpg")), filename: "couple-p1-spot5-1.jpg" },
    { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot5-2.jpg")), filename: "couple-p1-spot5-2.jpg" },
-   { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot5-2.jpg")), filename: "couple-p1-spot5-2.jpg" }
+   { io: File.open(Rails.root.join("db/fixtures/couple-p1-spot5-3.jpg")), filename: "couple-p1-spot5-3.jpg" }
   ])
 
   # spot1 にルートをネスト（高知駅→高知城）
