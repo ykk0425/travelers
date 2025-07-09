@@ -10,9 +10,13 @@
   <div class="row">
     <% @users.each do |user| %>
       <div class="col-md-4 mb-3">
-        <div class="hover-card text-center p-3 border rounded">
-          <%= link_to user.name, user_path(user), class: 'text-dark text-decoration-none' %>
-        </div>
+        <%= link_to user_path(user), class: 'text-dark text-decoration-none' do %>
+          <div class="card hover-card h-100">
+            <div class="card-body text-center">
+              <h6 class="card-title"><%= user.name %></h6>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

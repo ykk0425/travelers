@@ -10,10 +10,16 @@
   <div class="row">
     <% @plans.each do |plan| %>
       <div class="col-md-4 mb-3">
-        <div class="hover-card text-center p-3 border rounded">
-          <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
-            <div class="text-muted small"><i class="fa-regular fa-comment fa-flip-horizontal"></i>：<%= plan.comments.count %></div>
-        </div>
+        <%= link_to plan_path(plan), class: 'text-dark text-decoration-none' do %>
+          <div class="card hover-card h-100">
+            <div class="card-body text-center">
+              <h6 class="card-title"><%= plan.title %></h6>
+              <p class="card-text text-muted small">
+                <i class="fa-regular fa-comment fa-flip-horizontal"></i>:<%= plan.comments.count %>
+              </p>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -21,6 +27,5 @@
   <div class="mt-5">
     <%= link_to 'ユーザー一覧', users_path, class: 'btn btn-outline-secondary btn-sm' %>
   </div>
-
 
 </div>
