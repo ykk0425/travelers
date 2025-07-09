@@ -14,15 +14,21 @@
     <%= link_to "新規プラン投稿する", new_plan_path, class: 'btn btn-outline-info mb-3'  %>
   <% end %>
  
-  <h4><i class="fa-solid fa-person-walking-luggage"></i>プラン一覧</h4> 
+  <h4 class= "mt-3"><i class="fa-solid fa-person-walking-luggage"></i>プラン一覧</h4> 
 
   <div class="row">
     <% @plans.each do |plan| %>
       <div class="col-md-4 mb-3">
-        <div class="text-center p-3 border rounded">
-          <%= link_to plan.title, plan_path(plan), class: 'text-dark text-decoration-none' %>
-            <div class="text-muted small"><i class="fa-regular fa-comment fa-flip-horizontal"></i>：<%= plan.comments.count %></div>
-        </div>
+        <%= link_to plan_path(plan), class: 'text-dark text-decoration-none' do %>
+          <div class="card hover-card h-100">
+            <div class="card-body text-center">
+              <h6 class="card-title"><%= plan.title %></h6>
+              <p class="card-text text-muted small">
+                <i class="fa-regular fa-comment fa-flip-horizontal"></i>:<%= plan.comments.count %>
+              </p>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
