@@ -19,7 +19,8 @@
   </p>
 
   <% if @plan.body.present? %>
-    <i class="fa-regular fa-message fa-flip-horizontal"></i>:<%= @plan.body %>
+    <i class="fa-regular fa-message fa-flip-horizontal"></i>:
+    <%= simple_format(@plan.body,sanitize: true) %>
   <% end %>
 
   <div id="spots">
@@ -36,7 +37,8 @@
             </div>
           <% end %>
         <p><% if spot.explanation.present? %>
-            <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= spot.explanation %>
+            <i class="fa-regular fa-message fa-flip-horizontal"></i>:
+            <%= simple_format(spot.explanation,sanitize: true) %>
           <% end %>
         </p>
         <p><i class="fa-solid fa-clock"></i>: <%= l(spot.staying_start, format: :short) %> ~ <%= l(spot.staying_end, format: :short) %></p>
@@ -51,7 +53,8 @@
           <p>移動方法: <%= t("enums.route.transportation.#{route.transportation}") %></p>
           <p>移動時間: <%= route.travel_time %>分</p> 
             <% if route.description.present? %>
-              <i class="fa-regular fa-message fa-flip-horizontal"></i>: <%= route.description %>
+              <i class="fa-regular fa-message fa-flip-horizontal"></i>:
+              <%= simple_format(route.description,sanitize: true) %>
             <% end %>
         <% end %>
       </div>
