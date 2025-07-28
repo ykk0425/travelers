@@ -8,7 +8,7 @@ class Public::PlansController < ApplicationController
 
   # GET /plans or /plans.json
   def index
-    @plans = Plan.all
+    @plans = Plan.all.order(created_at: :desc)
   end
 
   # GET /plans/1 or /plans/1.json
