@@ -12,7 +12,9 @@ module Travelers
     config.load_defaults 6.1
     #↓日本語に対応させるための追記（enum）
     config.i18n.default_locale = :ja
-
+    
+    #↓タイムゾーンを日本時間に
+    config.time_zone = 'Tokyo'
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
